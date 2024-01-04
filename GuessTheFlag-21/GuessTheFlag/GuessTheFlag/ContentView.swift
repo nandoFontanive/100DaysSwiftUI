@@ -29,8 +29,18 @@ struct ContentView: View {
     @State private var userScore = 0
     @State private var totalQuestionsAnswered = 0
     
-    //Go back to project 2 and replace the Image view used for flags with a new FlagImage() view that renders one flag image using the specific set of modifiers we had.
+    @State private var animationAmount = 0.0
+    @State private var isCorrect = false
+    @State private var selectedNumber = 0
+        
+    //Make the other two buttons fade out to 25% opacity.
 
+    @State private var isFadeOutOpacity = false
+    @State private var isScaledDown = false
+    
+    
+    //Go back to project 2 and replace the Image view used for flags with a new FlagImage() view that renders one flag image using the specific set of modifiers we had.
+    
     struct FlagImage: View {
         var flag: String
         var body: some View {
@@ -52,10 +62,8 @@ struct ContentView: View {
             VStack {
                 Spacer()
                 
-                        Text("Jogo do Adivinhe!")
-                            .modifier(customLargeBlueFontTitleViewModifier())
-                    
-                
+                Text("Jogo do Adivinhe!")
+                    .modifier(customLargeBlueFontTitleViewModifier())
                 
                 Text("Adivinhe a bandeira!")
                     .font(.largeTitle.bold())
@@ -71,18 +79,30 @@ struct ContentView: View {
                             .font(.largeTitle.weight(.semibold))
                     }
                     
-                    ForEach(0..<3) { number in
-                        Button {
-                            flagTapped(number)
-                        } label: {
+                    //When you tap a flag, make it spin around 360 degrees on the Y axis.
+                    //Make the other two buttons fade out to 25% opacity.
+                    ForEach(0 ..< 3) { number in
+                        Button(action: {
+                            withAnimation {
+                                flagTapped(number)
+                            }
+                        }) {
                             FlagImage(flag: self.countries[number])
+                                .rotation3DEffect(
+                                    .degrees(self.isCorrect && self.selectedNumber == number ? 360 : 0), axis: (x: 0, y: 1, z: 0))
+                                .opacity(self.isFadeOutOpacity && self.selectedNumber != number ? 0.25 : 1)
+                                .scaleEffect(self.isScaledDown && self.selectedNumber != number ? 0.25 : 1)
                         }
                     }
+                    
+
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 20)
                 .background(.regularMaterial)
                 .clipShape(.rect(cornerRadius: 20))
+                .animation(.spring(duration: 1, bounce: 0.6), value: animationAmount)
+
                 
                 Spacer()
                 Spacer()
@@ -109,10 +129,17 @@ struct ContentView: View {
     
     
     func flagTapped(_ number: Int) {
+        self.selectedNumber = number
         totalQuestionsAnswered += 1
+        animationAmount += 360
         if number == correctAnswer {
             scoreTitle = "Correct"
             userScore += 1
+            
+            self.isCorrect = true
+            self.isFadeOutOpacity = true
+            self.isScaledDown = true
+            
         } else {
             scoreTitle = "Wrong, this is the flag of \(countries[number])"
             //^ bom pra entender o conceito de puxar a escolha (number) do array de países
@@ -121,24 +148,27 @@ struct ContentView: View {
     }
     
     func askQuestion() {
+        self.isFadeOutOpacity = false
+        self.isScaledDown = false
+        self.isCorrect = false
+        
         if totalQuestionsAnswered == 3 {
             isGameFinished = true
             scoreTitle = "Fim do jogo!"
-            
         }
         else {
-            countries.shuffle()
+            self.countries.shuffle()
             correctAnswer = Int.random(in: 0...2)
         }
     }
     
-    
+    /*
     func restartGame() {
         totalQuestionsAnswered = 0
         userScore = 0
         isGameFinished = false
         askQuestion()
-    }
+    }*/
 }
 
 
