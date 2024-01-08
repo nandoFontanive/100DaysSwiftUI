@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		20043B342B4C30F9001865DB /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20043B332B4C30F9001865DB /* Help.swift */; };
 		200E1C6D2B46E9CC00342936 /* Challenge3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200E1C6C2B46E9CC00342936 /* Challenge3App.swift */; };
 		200E1C6F2B46E9CC00342936 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200E1C6E2B46E9CC00342936 /* ContentView.swift */; };
 		200E1C712B46E9CD00342936 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 200E1C702B46E9CD00342936 /* Assets.xcassets */; };
@@ -15,7 +14,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		20043B332B4C30F9001865DB /* Help.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Help.swift; sourceTree = "<group>"; };
 		200E1C692B46E9CC00342936 /* Challenge3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenge3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		200E1C6C2B46E9CC00342936 /* Challenge3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge3App.swift; sourceTree = "<group>"; };
 		200E1C6E2B46E9CC00342936 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -37,7 +35,6 @@
 		200E1C602B46E9CC00342936 = {
 			isa = PBXGroup;
 			children = (
-				20043B332B4C30F9001865DB /* Help.swift */,
 				200E1C6B2B46E9CC00342936 /* Challenge3 */,
 				200E1C6A2B46E9CC00342936 /* Products */,
 			);
@@ -141,7 +138,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				200E1C6F2B46E9CC00342936 /* ContentView.swift in Sources */,
-				20043B342B4C30F9001865DB /* Help.swift in Sources */,
 				200E1C6D2B46E9CC00342936 /* Challenge3App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
