@@ -17,237 +17,152 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
-    @State private var isGameActive = false
-    @State private var isSettingActive = true
-    @State private var chosenTable = 2
-    @State private var chosenNumberQuestions = 0
-    @State var questionsBank = [String:Int]()
-    @State var questionNumber = 0
-    @State var resposta = 0
     
-        let startGame: (Int) -> Void
-    
-    init(startGame: @escaping (Int) -> Void = { _ in }) {
-        self.startGame = startGame
+    struct PerguntaResposta {
+        var fator1: Int
+        var fator2: Int
+        
+        var answer: Int {
+            fator1 * fator2
+        }
+        var textoQuestao: String {
+            "\(fator1) * \(fator2)"
+        }
     }
     
+    @State private var chosenTable = 2
+    @State private var numberQuestions = [5, 10, 15, 20]
+    @State private var chosenNumberQuestions = 0
+    
+    @State private var questionsBank = [String:Int]()
+    @State private var answersBank = [Int]()
+    
+    @State private var userAnswer = 0
+    @State private var correctAnswer = 0
+    
+    @State private var currentQuestion = 0
+    @State private var displayQuestion = 0
+    
+    @State private var score = 0
+    
+    @State private var isGameActive = false
+    @State private var isSettingActive = true
+    
+    @State private var showAlert = false
+    @State private var alertMessage = ""
+    @State private var gameOver = false
+    
+    //    let startGame: (Int) -> Void
+    //
+    //    init(startGame: @escaping (Int) -> Void = { _ in }) {
+    //        self.startGame = startGame
+    //    }
+    
     var body: some View {
-        if isGameActive {
-            GameView(chosenNumberQuestions: chosenNumberQuestions)
-        } else {
-            GameSettingsView(startGame: startGame)
+        NavigationStack {
+            Form {
+                if isGameActive {
+                    GameView(chosenNumberQuestions: chosenNumberQuestions)
+                } else {
+                    GameSettingsView(startGame: startGame)
+                }
+            }
+            .navigationTitle("JogoTabulada")
         }
         
-        VStack {
-            HStack {
-                Image(systemName: "number.circle")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("Jogo da taubulada")
-                Image(systemName: "number.circle")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
+        func startGame(with chosenNumberQuestions: Int) {
+            self.chosenNumberQuestions = chosenNumberQuestions
+            isGameActive = true
+            isSettingActive = false
+            generateQuestions()
+        }
+        
+        func generateQuestions() {
+            for _ in 1...chosenNumberQuestions {
+                let f1 = Int.random(in: 1...10)
+                let f2 = Int.random(in: 2...12)
+                let question = "\(f1) * \(f2) é "
+                let correctAnswer = f1 * f2
+                questionsBank[question] = correctAnswer
             }
-            Form {
-                Section {
-                    Text("Escolha a tabuada desejada")
-                    Stepper("Tabuada do \(chosenTable)", value: $chosenTable, in: 2...12, step: 1)
+            print(questionsBank)
+            questionsBank = [:]
+        }
+        
+        func userAnswersQuestion() {
+        }
+    }
+    
+    struct GameView: View {
+        let chosenNumberQuestions: Int
+        @State private var userAnswersQuestion = 0
+        @State private var resposta = 0
+        
+        var body: some View {
+            
+            Text("Digite a resposta certa \(chosenNumberQuestions)")
+            Text("Qual o valor de")
+            //                                                                        Text(questionsBank[0] ?? nil)
+            
+            Section("Resposta") {
+                
+                //            TextField("Digite a resposta", value: $resposta, format: .number) {
+                //            }
+                //            .keyboardType(.decimalPad)
+                
+                //            Button("Responder")
+                //                .background(.blue)
+                //                .foregroundColor(.white)
+                //                .buttonStyle(.bordered)
+            }
+        }
+    }
+    
+    struct GameSettingsView: View {
+        @State private var chosenTable = 2
+        @State var chosenNumberQuestions = 0
+        let startGame: (Int) -> Void
+        
+        var body: some View {
+            
+            VStack {
+                HStack {
+                    Image(systemName: "number.circle")
+                        .imageScale(.large)
+                        .foregroundStyle(.tint)
+                    Text("Jogo da taubulada")
+                    Image(systemName: "number.circle")
+                        .imageScale(.large)
+                        .foregroundStyle(.tint)
                 }
-                Section {
-                    Text("Quantas perguntas quer responder?")
-                    Picker("\(chosenNumberQuestions) perguntas", selection: $chosenNumberQuestions) {
-                        ForEach(1..<50) {
-                            Text("\($0)")
-                        }
-
-                        Picker("Number of Questions", selection: $chosenNumberQuestions) {
+                Form {
+                    Section {
+                        Text("Escolha a tabuada desejada")
+                        Stepper("Tabuada do \(chosenTable)", value: $chosenTable, in: 2...12, step: 1)
+                    }
+                    Section {
+                        Text("Quantas perguntas quer responder?")
+                        Picker("\(chosenNumberQuestions) perguntas", selection: $chosenNumberQuestions) {
                             ForEach(1..<50) {
                                 Text("\($0)")
                             }
-
-                            Button("Iniciar!") { startGame(chosenNumberQuestions) }
-                                .background(.blue)
-                                .foregroundColor(.white)
-                                .buttonStyle(.bordered)
-
-                            //                                                                Text("Qual o valor de")
-                            //                                                                Text(questionsBank[0] ?? nil)
-
-                            Section("Resposta") {
-
-                                //                                    TextField("Digite a resposta", value: resposta, format: .number) {
-                                //                                    }
-                                //                                    .keyboardType(.decimalPad)
-
-                                //                                    Button("Responder", action: userAnswersQuestion(resposta))
-                                //                                        .background(.blue)
-                                //                                        .foregroundColor(.white)
-                                //                                        .buttonStyle(.bordered)
-                            }
                         }
+                        
+                        Button("Iniciar!") { startGame(chosenNumberQuestions) }
+                        
+                            .background(.blue)
+                            .foregroundColor(.white)
+                            .buttonStyle(.bordered)
                     }
                 }
             }
         }
     }
     
-    func startGame(with chosenNumberQuestions: Int) {
-        self.chosenNumberQuestions = chosenNumberQuestions
-        isGameActive = true
-//        isSettingActive = false
-//        generateQuestions()
-        
+    #Preview {
+        ContentView()
     }
     
-//    func generateQuestions() {
-//        for _ in 1...chosenNumberQuestions {
-//            let f1 = Int.random(in: 1...10)
-//            let f2 = Int.random(in: 2...12)
-//            let question = "\(f1) * \(f2) é "
-//            let correctAnswer = f1 * f2
-//            questionsBank[question] = correctAnswer
-//        }
-//        print(questionsBank)
-//        questionsBank = [:]
-//    }
-//
-//    func userAnswersQuestion() {
-//    }
-    
-    
-}
-
-struct GameView: View {
-    let chosenNumberQuestions: Int
-    var body: some View {
-        Text("Digite a resposta certa \(chosenNumberQuestions)")
-    }
-}
-
-struct GameSettingsView: View {
-    @State private var chosenTable = 2
-    @State var chosenNumberQuestions = 0
-    let startGame: (Int) -> Void
-    
-
-    
-    var body: some View {
-        
-        VStack {
-            HStack {
-                Image(systemName: "number.circle")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("Jogo da taubulada")
-                Image(systemName: "number.circle")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-            }
-            Form {
-                Section {
-                    Text("Escolha a tabuada desejada")
-                    Stepper("Tabuada do \(chosenTable)", value: $chosenTable, in: 2...12, step: 1)
-                }
-                Section {
-                    Text("Quantas perguntas quer responder?")
-                    Picker("\(chosenNumberQuestions) perguntas", selection: $chosenNumberQuestions) {
-                        ForEach(1..<50) {
-                            Text("\($0)")
-                        }
-                    }
-
-                            
-                    Button("Iniciar!") { startGame(chosenNumberQuestions) }
-                    
-                                .background(.blue)
-                                .foregroundColor(.white)
-                                .buttonStyle(.bordered)
-                    
-                    
-//                    Button("Iniciar!") {
-//                        startGame(chosenNumberQuestions) // Pass the selected number of questions to startGame
-                    }
-                           
-                            //                                                                Text("Qual o valor de")
-                            //                                                                Text(questionsBank[0] ?? nil)
-                            
-//                            Section("Resposta") {
-                                
-                                //                                    TextField("Digite a resposta", value: resposta, format: .number) {
-                                //                                    }
-                                //                                    .keyboardType(.decimalPad)
-                                
-                                //                                    Button("Responder", action: userAnswersQuestion(resposta))
-                                //                                        .background(.blue)
-                                //                                        .foregroundColor(.white)
-                                //                                        .buttonStyle(.bordered)
-//                            }
-                        }
-                    }
-                }
-            }
-        
-        
-    
-
-
-//struct ContentViewGuy: View {
-//    @State private var isGameStarted = false
-//    @State private var numberQuestions = 0
-//
-//    var body: some View {
-//        if isGameStarted {
-//            GameViewGuy(numberQuestions: numberQuestions)
-//        } else {
-//            SettingsViewGuy(startGame: startGame)
-//        }
-//    }
-//
-//    func startGame(with numberQuestions: Int) {
-//        self.numberQuestions = numberQuestions
-//        isGameStarted = true
-//    }
-//}
-//
-//struct GameViewGuy: View {
-//    let numberQuestions: Int
-//
-//    var body: some View {
-//        Text("Game playing \(numberQuestions) questions")
-//    }
-//}
-//
-//struct SettingsViewGuy: View {
-//    @State private var numberQuestions = 0
-//    let startGame: (Int) -> Void
-//
-//    var body: some View {
-//        VStack {
-//            HStack {
-//                Text("Number of Questions")
-//                Picker("Number of Questions", selection: $numberQuestions) {
-//                    ForEach(1..<50) {
-//                        Text("\($0)")
-//                    }
-//                }
-//            }
-//
-//            Button("Start Game") {
-//                startGame(numberQuestions + 1)
-//            }
-//            .buttonStyle(.borderedProminent)
-//        }
-//    }
-//}
-
-
-
-
-
-
-
-//#Preview {
-//    ContentView()
-//}
-
