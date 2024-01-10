@@ -31,17 +31,17 @@ struct ContentView: View {
     }
     
     @State private var multiplicationTable = 2
-    @State private var numberOfQuestions = [5, 10, 15, 20]
-    @State private var numberOfQuestion = 0
+    @State private var possibleNumberOfQuestions = [5, 10, 15, 20]
+    @State private var chosenNumberOfQuestions = 0
     
     @State private var questionArray = [String]()
     @State private var answerArray = [Int]()
     
     @State private var userAnswer: Int = 0
-    @State private var answer = 0
+    @State private var correctAnswer = 0
     
     @State private var currentQuestion = 0
-    @State private var displayQuestion = " "
+    @State private var answerDescription = " "
     
     @State private var score = 0
     
@@ -66,8 +66,8 @@ struct ContentView: View {
                         Text("Selecione o valor")
                     }
                     Section {
-                        Picker("Quantas perguntas quer responder?", selection: $numberOfQuestion) {
-                            ForEach(numberOfQuestions, id: \.self) {
+                        Picker("Quantas perguntas quer responder?", selection: $chosenNumberOfQuestions) {
+                            ForEach(possibleNumberOfQuestions, id: \.self) {
                                 Text("\($0)")
                             }
                         }
@@ -81,7 +81,7 @@ struct ContentView: View {
                 }
                 if playingGame {
                     Section {
-                        Text(displayQuestion)
+                        Text(answerDescription)
                         Section {
                             TextField("Resposta usuário", value: $userAnswer, format: .number)
                             Button("Checar resposta") {
@@ -97,8 +97,6 @@ struct ContentView: View {
                         Button("Ok") {
                             if gameOver {
                                 startNewGames()
-                            } else {
-                                
                             }
                         }
                     }
@@ -107,36 +105,36 @@ struct ContentView: View {
             .navigationTitle("JogoTabulada")
         }
     }
+    
+    func configureGame() {
+        playingGame = true
+        configuringGame = false
+        gameOver = false
         
-        func configureGame() {
-            playingGame = true
-            configuringGame = false
-            gameOver = false
+        var count = 0
+        while count < chosenNumberOfQuestions {
+            let randomNum = Int.random(in: 0...12)
+            let problem = QuestionAndAnswer(operand1: multiplicationTable, operand2: randomNum)
             
-            var count = 0
-            while count < numberOfQuestion {
-                let randomNum = Int.random(in: 0...12)
-                let problem = QuestionAndAnswer(operand1: multiplicationTable, operand2: randomNum)
-                
-                let questionTexts = problem.questionText
-                let questionAnswer = problem.answer
-                
-                questionArray.append(questionTexts)
-                answerArray.append(questionAnswer)
-                
-                count += 1
-            }
-            print(questionArray)
-            print(answerArray)
+            let questionTexts = problem.questionText
+            let questionAnswer = problem.answer
+            
+            questionArray.append(questionTexts)
+            answerArray.append(questionAnswer)
+            
+            count += 1
         }
-        
+        print(questionArray)
+        print(answerArray)
+    }
+    
     func setQuestion() {
-        if currentQuestion != numberOfQuestion {
-            let displaysQuestion = questionArray[currentQuestion]
-            displayQuestion = displaysQuestion
+        if currentQuestion != chosenNumberOfQuestions {
+            let showQuestion = questionArray[currentQuestion]
+            answerDescription = showQuestion
             
             let setAnswer = answerArray[currentQuestion]
-            answer = setAnswer
+            correctAnswer = setAnswer
             
             userAnswer = 0
         } else {
@@ -145,26 +143,29 @@ struct ContentView: View {
             gameOver = true
         }
     }
-        
-        func checkAnswer() {
-            if answer == userAnswer {
-                score += 1
-                alertMessage = "Certo!"
-            } else {
-                score -= 1
-                alertMessage = "Errou, resposta é \(userAnswer)"
-            }
-            currentQuestion += 1
-            showAlert = true
-            setQuestion()
+    
+    func checkAnswer() {
+        if correctAnswer == userAnswer {
+            score += 1
+            alertMessage = "Certo!"
+        } else {
+            score -= 1
+            alertMessage = "Errou, resposta é \(correctAnswer)"
         }
-        
-        func startNewGames() {
-            currentQuestion = 0
-            numberOfQuestion = 0
-            score = 0
-            playingGame = false
-            configuringGame = true
-        }
+        currentQuestion += 1
+        showAlert = true
+        setQuestion()
+    }
+    
+    func startNewGames() {
+        currentQuestion = 0
+        chosenNumberOfQuestions = 0
+        score = 0
+        playingGame = false
+        configuringGame = true
+    }
 }
 
+#Preview {
+    ContentView()
+}
