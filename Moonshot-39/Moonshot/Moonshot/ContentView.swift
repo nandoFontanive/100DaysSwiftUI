@@ -11,6 +11,7 @@ struct ContentView: View {
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
     
+    @State private var showingMissionsAsList = false
     let columns = [
         GridItem(.adaptive(minimum: 150))
     ]
@@ -18,6 +19,9 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
+//For a tough challenge, add a toolbar item to ContentView that toggles between showing missions as a grid and as a list.
+
+                List {
                 LazyVGrid(columns: columns) {
                     ForEach(missions) { mission in
                         NavigationLink {
@@ -46,18 +50,23 @@ struct ContentView: View {
                             .clipShape(.rect(cornerRadius: 10))
                             .overlay(RoundedRectangle(cornerRadius: 10)
                                 .stroke(.lightBackground)
-                                     )
+                            )
                         }
-                                     }
                     }
                 }
-            .padding([.horizontal, .bottom])
+                .padding([.horizontal, .bottom])
             }
             .navigationTitle("Moonshot")
             .background(.darkBackground)
             .preferredColorScheme(.dark)
+            .toolbar {
+                Button("Change view", systemImage: "rectangle.grid.1x2.fill") {
+                    showingMissionsAsList = true
+                }
+            }
         }
     }
+}
 
 
 #Preview {
