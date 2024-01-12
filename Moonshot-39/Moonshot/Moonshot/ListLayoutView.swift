@@ -13,29 +13,27 @@ struct ListLayoutView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-//                List {
-                    ForEach(missions) { mission in
-                        NavigationLink {
-                            MissionView(mission: mission, astronauts: astronauts)
-                        } label: {
-                            VStack {
-                                Text(mission.displayName)
-                                    .font(.headline)
-                                    .foregroundStyle(.white)
-                            }
+            List {
+                ForEach(missions) { mission in
+                    NavigationLink {
+                        MissionView(mission: mission, astronauts: astronauts)
+                    } label: {
+                        VStack {
+                            Text(mission.displayName)
+                                .font(.headline)
+                                .foregroundStyle(.white)
                         }
                     }
-                    
-                
-                //            .listStyle(.plain)
-                .navigationTitle("Moonshot")
-                //            .background(.darkBackground)
-                .preferredColorScheme(.dark)
+                }
             }
+            .listStyle(.plain)
+            .navigationTitle("Moonshot")
+            .background(.darkBackground)
+            .preferredColorScheme(.dark)
         }
     }
 }
+
 #Preview {
     ListLayoutView()
 }
