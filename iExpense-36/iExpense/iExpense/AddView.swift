@@ -10,10 +10,12 @@ import SwiftUI
 struct AddView: View {
     @Environment(\.dismiss) var dismiss
 
-    @State private var name = ""
+    @State private var name = "despesa"
     @State private var type = "Personal"
     @State private var amount = 0.0
 
+//    @State private var titulo = "titulo"
+    
     var expenses: Expenses
 
     let types = ["Business", "Personal"]
@@ -23,7 +25,9 @@ struct AddView: View {
     var body: some View {
         NavigationStack {
             Form {
-                TextField("Name", text: $name)
+//                Try changing project 7 so that it lets users edit their issue name in the navigation title rather than a separate textfield. Which option do you prefer?
+
+//                TextField("Name", text: $name)
 
                 Picker("Type", selection: $type) {
                     ForEach(types, id: \.self) {
@@ -36,14 +40,28 @@ struct AddView: View {
 //                TextField("Amount", value: $amount, format: .currency(code: "USD")) -> valor não aparece, bug?
                     .keyboardType(.decimalPad)
             }
-            .navigationTitle("Add new expense")
-            .toolbar {
-                Button("Save") {
-                    let item = ExpenseItem(name: name, type: type, amount: amount)
-                    expenses.items.append(item)
-                    dismiss()
+            .navigationTitle($name)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar() {
+                ToolbarItem() {
+                    
+                    
+                    Button("Save") {
+                        let item = ExpenseItem(name: name, type: type, amount: amount)
+                        expenses.items.append(item)
+                        dismiss()
+                    }
+                    Button("Cancel") {
+                        dismiss()
+                    }
+                    
+                    
                 }
             }
+        }
+        .navigationBarBackButtonHidden()
+
+            
         }
     }
 }

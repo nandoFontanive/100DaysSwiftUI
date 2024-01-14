@@ -43,7 +43,7 @@ class Expenses {
 
 struct ContentView: View {
     @State private var expenses = Expenses()
-    
+
 //    @State private var showingAddExpense = false
     
     var body: some View {
