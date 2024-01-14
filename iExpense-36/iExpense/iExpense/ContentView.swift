@@ -39,14 +39,18 @@ class Expenses {
         items = []
     }
 }
+//Change project 7 (iExpense) so that it uses NavigationLink for adding new expenses rather than a sheet. (Tip: The dismiss() code works great here, but you might want to add the navigationBarBackButtonHidden() modifier so they have to explicitly choose Cancel.)
 
 struct ContentView: View {
     @State private var expenses = Expenses()
     
-    @State private var showingAddExpense = false
+//    @State private var showingAddExpense = false
     
     var body: some View {
         NavigationStack {
+            NavigationLink("Add Expense") {
+                AddView(expenses: expenses)
+            }
             List {
                 Section {
                     ForEach(expenses.items) { item in
@@ -71,10 +75,10 @@ struct ContentView: View {
                     ForEach(expenses.items) { item in
                         if item.type == "Business" {
                             HStack {
-                                                            VStack(alignment: .leading) {
-                                Text(item.name)
-                                    .font(.headline)
-                                                            }
+                                VStack(alignment: .leading) {
+                                    Text(item.name)
+                                        .font(.headline)
+                                }
                                 Spacer()
                                 Text(item.amount, format: .currency(code: "BRL"))
                                     .foregroundColor(item.amount > 100 ? .red : ((item.amount) > 10 ? .blue : .black))
@@ -87,21 +91,22 @@ struct ContentView: View {
                     Text("Business expenses") }
             }
             .navigationTitle("iExpense")
-            .toolbar {
-                Button("Add Expense", systemImage: "plus") {
-                    showingAddExpense = true
-                }
-            }
-            .sheet(isPresented: $showingAddExpense) {
-                AddView(expenses: expenses)
-            }
+//            .toolbar {
+//                Button("Add Expense", systemImage: "plus") {
+//                    showingAddExpense = true
+//                }
+//            }
+//            .sheet(isPresented: $showingAddExpense) {
+//                AddView(expenses: expenses)
+//            }
         }
     }
+    
     func removeItems(at offsets: IndexSet) {
         expenses.items.remove(atOffsets: offsets)
     }
-    
 }
+
 
 
 #Preview {
