@@ -48,9 +48,10 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            NavigationLink("Add Expense") {
-                AddView(expenses: expenses)
-            }
+//            NavigationLink("Add Expense") {
+//                AddView(expenses: expenses)
+//            }
+            
             List {
                 Section {
                     ForEach(expenses.items) { item in
@@ -91,11 +92,16 @@ struct ContentView: View {
                     Text("Business expenses") }
             }
             .navigationTitle("iExpense")
-//            .toolbar {
-//                Button("Add Expense", systemImage: "plus") {
-//                    showingAddExpense = true
-//                }
-//            }
+            .toolbar() {
+                ToolbarItem(placement: .topBarTrailing) {
+                    
+                        NavigationLink("Add Expense") {
+                            AddView(expenses: expenses)
+                        }
+                    
+                }
+            }
+            .navigationBarBackButtonHidden()
 //            .sheet(isPresented: $showingAddExpense) {
 //                AddView(expenses: expenses)
 //            }
