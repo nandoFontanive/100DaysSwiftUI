@@ -11,10 +11,18 @@
 
 import SwiftUI
 
-struct HabitItem: Hashable {
-    var name = ""
-    var timesPerWeek = 0
-    var timesExecuted = 0
+struct HabitItem: Identifiable, Hashable {
+    var id = UUID()
+    let name = ""
+    let timesPerWeek = 0
+    let timesExecuted = 0
+}
+
+@Observable
+class Habits {
+    var item = [HabitItem]() {
+        
+    }
 }
 
 struct ContentView: View {
@@ -26,12 +34,16 @@ struct ContentView: View {
             VStack {
                 Text("Current habits")
                 List {
-                    ForEach() { habits in
-                        registeredHabits[$0]
+                    Section {
+                        ForEach(expenses.items) { item in
+                            if item.type == "Personal" {
+                                ForEach(registeredHabits.item) { habits in
+                                    habit[$0]
+                                }
+                            }
+                        }
                     }
-                }
-            }
-            .navigationTitle("Habits app")
+                    .navigationTitle("Habits app")
         }
         .toolbar {
             Button("Add habit") {
