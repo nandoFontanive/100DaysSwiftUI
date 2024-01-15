@@ -12,11 +12,18 @@ struct ContentView: View {
     let missions: [Mission] = Bundle.main.decode("missions.json")
     
     @State private var showingMissionsAsList = true
+    //Return to project 8 (Moonshot), and upgrade it to use NavigationLink(value:). This means adding Hashable conformance, and thinking carefully how to use navigationDestination().
+
+//    @State private var path = [Int]()
+    
+    
     let columns = [
         GridItem(.adaptive(minimum: 150))
     ]
     
     var body: some View {
+//        NavigationStack {
+//        NavigationStack(path: $path) {
         NavigationStack {
             //            ScrollView {
             //            ScrollView {
