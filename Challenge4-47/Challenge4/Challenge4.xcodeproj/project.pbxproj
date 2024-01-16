@@ -11,7 +11,7 @@
 		209CA77A2B55A1E10009CA36 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209CA7792B55A1E10009CA36 /* ContentView.swift */; };
 		209CA77C2B55A1E20009CA36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 209CA77B2B55A1E20009CA36 /* Assets.xcassets */; };
 		209CA77F2B55A1E20009CA36 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 209CA77E2B55A1E20009CA36 /* Preview Assets.xcassets */; };
-		209CA7862B55A4560009CA36 /* HabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209CA7852B55A4560009CA36 /* HabitView.swift */; };
+		209CA7862B55A4560009CA36 /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209CA7852B55A4560009CA36 /* AddHabitView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +20,7 @@
 		209CA7792B55A1E10009CA36 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		209CA77B2B55A1E20009CA36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		209CA77E2B55A1E20009CA36 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		209CA7852B55A4560009CA36 /* HabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitView.swift; sourceTree = "<group>"; };
+		209CA7852B55A4560009CA36 /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +55,7 @@
 			children = (
 				209CA7772B55A1E10009CA36 /* Challenge4App.swift */,
 				209CA7792B55A1E10009CA36 /* ContentView.swift */,
-				209CA7852B55A4560009CA36 /* HabitView.swift */,
+				209CA7852B55A4560009CA36 /* AddHabitView.swift */,
 				209CA77B2B55A1E20009CA36 /* Assets.xcassets */,
 				209CA77D2B55A1E20009CA36 /* Preview Content */,
 			);
@@ -140,7 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				209CA7862B55A4560009CA36 /* HabitView.swift in Sources */,
+				209CA7862B55A4560009CA36 /* AddHabitView.swift in Sources */,
 				209CA77A2B55A1E10009CA36 /* ContentView.swift in Sources */,
 				209CA7782B55A1E10009CA36 /* Challenge4App.swift in Sources */,
 			);
