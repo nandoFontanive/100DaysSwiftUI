@@ -10,28 +10,27 @@ import SwiftUI
 struct AddHabitView: View {
     @Environment(\.dismiss) var dismiss
     
-    @State private var name = "habito"
-    @State private var type = "Personal"
+    @State private var name = ""
+    @State private var type = "Diário"
     
     //    @State private var titulo = "titulo"
     
     var habits: Habits
     
-    let types = ["Business", "Personal"]
-    
-    
+    let types = ["Diário", "Semanal"]
     
     var body: some View {
         NavigationStack {
             Form {
-                Picker("Type", selection: $type) {
+                TextField("Nome do novo hábito", text: $name)
+                Picker("Tipo do hábito", selection: $type) {
                     ForEach(types, id: \.self) {
                         Text($0)
                     }
                 }
 
             }
-            .navigationTitle($name)
+            .navigationTitle("Adicionar novo hábito")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar() {
                 ToolbarItem(placement: .topBarTrailing) {
