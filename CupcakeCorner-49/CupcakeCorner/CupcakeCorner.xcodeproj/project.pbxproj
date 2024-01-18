@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2067FEB02B5953E5004149B9 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067FEAF2B5953E5004149B9 /* Order.swift */; };
+		2067FEB22B595555004149B9 /* PreProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067FEB12B595555004149B9 /* PreProject.swift */; };
 		20AC23DC2B58380600A719E7 /* CupcakeCornerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC23DB2B58380600A719E7 /* CupcakeCornerApp.swift */; };
 		20AC23DE2B58380600A719E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC23DD2B58380600A719E7 /* ContentView.swift */; };
 		20AC23E02B58380700A719E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20AC23DF2B58380700A719E7 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		2067FEAF2B5953E5004149B9 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		2067FEB12B595555004149B9 /* PreProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreProject.swift; sourceTree = "<group>"; };
 		20AC23D82B58380600A719E7 /* CupcakeCorner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CupcakeCorner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20AC23DB2B58380600A719E7 /* CupcakeCornerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CupcakeCornerApp.swift; sourceTree = "<group>"; };
 		20AC23DD2B58380600A719E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -37,7 +39,6 @@
 		20AC23CF2B58380600A719E7 = {
 			isa = PBXGroup;
 			children = (
-				2067FEAF2B5953E5004149B9 /* Order.swift */,
 				20AC23DA2B58380600A719E7 /* CupcakeCorner */,
 				20AC23D92B58380600A719E7 /* Products */,
 			);
@@ -56,6 +57,8 @@
 			children = (
 				20AC23DB2B58380600A719E7 /* CupcakeCornerApp.swift */,
 				20AC23DD2B58380600A719E7 /* ContentView.swift */,
+				2067FEAF2B5953E5004149B9 /* Order.swift */,
+				2067FEB12B595555004149B9 /* PreProject.swift */,
 				20AC23DF2B58380700A719E7 /* Assets.xcassets */,
 				20AC23E12B58380700A719E7 /* Preview Content */,
 			);
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2067FEB02B5953E5004149B9 /* Order.swift in Sources */,
+				2067FEB22B595555004149B9 /* PreProject.swift in Sources */,
 				20AC23DE2B58380600A719E7 /* ContentView.swift in Sources */,
 				20AC23DC2B58380600A719E7 /* CupcakeCornerApp.swift in Sources */,
 			);
