@@ -11,8 +11,10 @@ import SwiftUI
 class User: Codable {
     enum CodingKeys: String, CodingKey {
         case _name = "nome"
+        case _eyes = "zóio"
     }
     var name = "Taylor"
+    var eyes = "Black"
 }
 
 struct ContentView: View {
