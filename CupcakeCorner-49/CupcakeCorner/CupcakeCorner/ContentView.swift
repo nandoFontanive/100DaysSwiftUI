@@ -4,9 +4,28 @@
 //
 //  Created by Fernando Fontanive on 17/01/24.
 //
+
+import SwiftUI
+
+@Observable
+class User: Codable {
+    var name = "Taylor"
+}
+
+struct ContentView: View {
+    var body: some View {
+        Button("Encode Taylor", action: encodeTaylor)
+    }
+    
+    func encodeTaylor() {
+        let data = try! JSONEncoder().encode(User())
+        let str = String(decoding: data, as: UTF8.self)
+        print(str)
+    }
+}
+
+
 /*
- import SwiftUI
- 
  struct Response: Codable {
  var results: [Result]
  }
