@@ -9,6 +9,9 @@ import SwiftUI
 
 @Observable
 class User: Codable {
+    enum CodingKeys: String, CodingKey {
+        case _name = "nome"
+    }
     var name = "Taylor"
 }
 
