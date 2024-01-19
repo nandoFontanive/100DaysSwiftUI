@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2067FEB02B5953E5004149B9 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067FEAF2B5953E5004149B9 /* Order.swift */; };
+		2067FEB02B5953E5004149B9 /* OrderC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067FEAF2B5953E5004149B9 /* OrderC.swift */; };
 		2067FEB22B595555004149B9 /* PreProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067FEB12B595555004149B9 /* PreProject.swift */; };
 		2067FEB42B596BDF004149B9 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067FEB32B596BDF004149B9 /* AddressView.swift */; };
 		2067FEB62B59880F004149B9 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067FEB52B59880F004149B9 /* CheckoutView.swift */; };
@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2067FEAF2B5953E5004149B9 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		2067FEAF2B5953E5004149B9 /* OrderC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderC.swift; sourceTree = "<group>"; };
 		2067FEB12B595555004149B9 /* PreProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreProject.swift; sourceTree = "<group>"; };
 		2067FEB32B596BDF004149B9 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		2067FEB52B59880F004149B9 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 			children = (
 				20AC23DB2B58380600A719E7 /* CupcakeCornerApp.swift */,
 				20AC23DD2B58380600A719E7 /* ContentView.swift */,
-				2067FEAF2B5953E5004149B9 /* Order.swift */,
+				2067FEAF2B5953E5004149B9 /* OrderC.swift */,
 				2067FEB32B596BDF004149B9 /* AddressView.swift */,
 				2067FEB52B59880F004149B9 /* CheckoutView.swift */,
 				2067FEB12B595555004149B9 /* PreProject.swift */,
@@ -149,7 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2067FEB02B5953E5004149B9 /* Order.swift in Sources */,
+				2067FEB02B5953E5004149B9 /* OrderC.swift in Sources */,
 				2067FEB22B595555004149B9 /* PreProject.swift in Sources */,
 				2067FEB62B59880F004149B9 /* CheckoutView.swift in Sources */,
 				20AC23DE2B58380600A719E7 /* ContentView.swift in Sources */,
