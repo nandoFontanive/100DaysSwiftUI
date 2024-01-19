@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CheckoutView: View {
+    @State private var confirmationMessage = ""
+    @State private var showingConfirmationMessage = false
     var order: Order
     
     var body: some View {
@@ -34,6 +36,12 @@ struct CheckoutView: View {
                 }
             }
         .navigationTitle("Check out")
+        .alert("Thank you!", isPresented: $showingConfirmationMessage) {
+            Button("OK") { }
+        } message: {
+        Text(confirmationMessage)
+        }
+        
         .navigationBarTitleDisplayMode(.inline)
         .scrollBounceBehavior(.basedOnSize)
 
@@ -43,9 +51,23 @@ struct CheckoutView: View {
             print("Failed to encode order")
             return
         }
+            let url = URL(string: "https://reqres.in/api/cupcakes")!
+            var request = URLRequest(url: url)
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpMethod = "POST"
+
+            do {
+                let (data, _) = try await URLSession.shared.upload(for: request, from: encoded)
+                let decoderOrder = try JSONDecoder().decode(Order.self, from: data)
+                confirmationMessage = "Your order for \(decoderOrder.quantity)x \(Order.types[decoderOrder.type].lowercased()) cupcakes is on the way!"
+                showingConfirmationMessage = true
+            } catch {
+                print("Checkout failed: \(error.localizedDescription)")
+            }
+        }
     }
     
-    }
+    
 
 
 #Preview {

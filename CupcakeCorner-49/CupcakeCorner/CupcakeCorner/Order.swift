@@ -56,4 +56,16 @@ class Order: Codable {
         return true
     }
     
+    enum CodingKeys: String, CodingKey {
+        case _type = "Type"
+        case _quantity = "Quantity"
+        case _specialRequestEnabled = "specialRequestEnabled"
+        case _extraFrosting = "extraFrosting"
+        case _addSprinkles = "addSprinkles"
+        case _name = "name"
+        case _city = "city"
+        case _streetAddress = "streetAddress"
+        case _zip = "zip"
+    }
+    
 }
