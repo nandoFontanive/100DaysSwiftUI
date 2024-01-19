@@ -9,7 +9,9 @@ import SwiftUI
 
 struct CheckoutView: View {
     @State private var confirmationMessage = ""
+    @State private var errorMessage = ""
     @State private var showingConfirmationMessage = false
+    @State private var showingErrorMessage = false
     var order: Order
     
     var body: some View {
@@ -32,20 +34,28 @@ struct CheckoutView: View {
                         await placeOrder()
                     }
                 }
-                    .padding()
-                }
+                .padding()
             }
+        }
         .navigationTitle("Check out")
+        .navigationBarTitleDisplayMode(.inline)
+        .scrollBounceBehavior(.basedOnSize)
         .alert("Thank you!", isPresented: $showingConfirmationMessage) {
             Button("OK") { }
         } message: {
-        Text(confirmationMessage)
+            Text(confirmationMessage)
         }
-        
-        .navigationBarTitleDisplayMode(.inline)
-        .scrollBounceBehavior(.basedOnSize)
+        //If our call to placeOrder() fails – for example if there is no internet connection – show an informative alert for the user. To test this, try commenting out the request.httpMethod = "POST" line in your code, which should force the request to fail.
 
+        .alert("Error!", isPresented: $showingErrorMessage) {
+            Button("OK") { }
+        } message: {
+            Text(errorMessage)
         }
+        }
+    
+
+        
     func placeOrder() async {
         guard let encoded = try? JSONEncoder().encode(order) else {
             print("Failed to encode order")
@@ -54,7 +64,7 @@ struct CheckoutView: View {
             let url = URL(string: "https://reqres.in/api/cupcakes")!
             var request = URLRequest(url: url)
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.httpMethod = "POST"
+            request.httpMethod = "POST" //comment in order to force POST error
 
             do {
                 let (data, _) = try await URLSession.shared.upload(for: request, from: encoded)
@@ -63,6 +73,8 @@ struct CheckoutView: View {
                 showingConfirmationMessage = true
             } catch {
                 print("Checkout failed: \(error.localizedDescription)")
+                errorMessage = "Deu ruim :("
+                showingErrorMessage = true
             }
         }
     }
