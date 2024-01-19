@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+//For a more challenging task, try updating the Order class so it saves data such as the user's delivery address to UserDefaults. This takes a little thinking, because @AppStorage won't work here, and you'll find getters and settings cause problems with Codable support. Can you find a middle ground?
+
 @Observable
 class Order: Codable {
     static let types = ["Vanilla", "Strawberry", "Chocolate", "Rainbow"]
@@ -45,7 +47,7 @@ class Order: Codable {
         return cost
     }
     
-    var name = ""
+    var name = "Nom"
     var streetAddress = ""
     var city = ""
     var zip = ""
@@ -73,5 +75,7 @@ class Order: Codable {
         case _streetAddress = "streetAddress"
         case _zip = "zip"
     }
+    
+    
     
 }

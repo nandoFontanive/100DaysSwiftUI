@@ -30,6 +30,12 @@ struct CheckoutView: View {
                     .font(.title)
                 
                 Button("Place Order") {
+                    let encoder2 = JSONEncoder()
+
+                    if let data = try? encoder2.encode(order.name) {
+                        UserDefaults.standard.set(data, forKey: "UserData")
+                    }
+
                     Task {
                         await placeOrder()
                     }
