@@ -4,13 +4,13 @@
 //
 //  Created by Fernando Fontanive on 19/01/24.
 //
-
+/*
 import SwiftUI
 
 struct PushButton: View {
     let title: String
-    @State var isOn: Bool
-    
+    @Binding var isOn: Bool
+
     var onColors = [Color.red, Color.yellow]
     var offColors = [Color(white: 0.6), Color(white: 0.4)]
     
@@ -32,15 +32,30 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            PushButton(title: "Remember Me", isOn: rememberMe)
+            PushButton(title: "Remember Me", isOn: $rememberMe)
             Text(rememberMe ? "On" : "Off")
         }
         
         
     }
 }
+*/
+import SwiftUI
 
+struct ContentView: View {
+    @AppStorage("notes") private var notes = ""
+    
+    var body: some View {
+        NavigationStack {
+            TextField("Enter your text", text: $notes, axis: .vertical)
+                .textFieldStyle(.roundedBorder)
+                .navigationTitle("Notes")
+                .padding()
+        }
+    }
+}
 
 #Preview {
     ContentView()
 }
+
