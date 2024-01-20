@@ -11,6 +11,8 @@
 		20187E192B5C42A300442D21 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20187E182B5C42A300442D21 /* ContentView.swift */; };
 		20187E1B2B5C42A400442D21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20187E1A2B5C42A400442D21 /* Assets.xcassets */; };
 		20187E1E2B5C42A400442D21 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20187E1D2B5C42A400442D21 /* Preview Assets.xcassets */; };
+		20187E252B5C533500442D21 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20187E242B5C533500442D21 /* Book.swift */; };
+		20187E272B5C5A6000442D21 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20187E262B5C5A6000442D21 /* AddBookView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		20187E182B5C42A300442D21 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		20187E1A2B5C42A400442D21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20187E1D2B5C42A400442D21 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		20187E242B5C533500442D21 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		20187E262B5C5A6000442D21 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +56,9 @@
 			isa = PBXGroup;
 			children = (
 				20187E162B5C42A300442D21 /* BookwormApp.swift */,
+				20187E262B5C5A6000442D21 /* AddBookView.swift */,
 				20187E182B5C42A300442D21 /* ContentView.swift */,
+				20187E242B5C533500442D21 /* Book.swift */,
 				20187E1A2B5C42A400442D21 /* Assets.xcassets */,
 				20187E1C2B5C42A400442D21 /* Preview Content */,
 			);
@@ -139,6 +145,8 @@
 			files = (
 				20187E192B5C42A300442D21 /* ContentView.swift in Sources */,
 				20187E172B5C42A300442D21 /* BookwormApp.swift in Sources */,
+				20187E252B5C533500442D21 /* Book.swift in Sources */,
+				20187E272B5C5A6000442D21 /* AddBookView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
