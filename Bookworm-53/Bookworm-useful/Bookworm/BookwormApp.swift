@@ -2,9 +2,10 @@
 //  BookwormApp.swift
 //  Bookworm
 //
-//  Created by Fernando Fontanive on 20/01/24.
+//  Created by Fernando Fontanive on 19/01/24.
 //
 
+import SwiftData
 import SwiftUI
 
 @main
@@ -13,5 +14,6 @@ struct BookwormApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: Student.self)
     }
 }
