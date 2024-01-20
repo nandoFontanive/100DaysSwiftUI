@@ -76,10 +76,16 @@ class Student {
 }
 
 struct ContentView: View {
-    
+    @Query var students: [Student]
+    @Environment(\.modelContext) var modelContext
     
     var body: some View {
-        
+        NavigationStack {
+            List(students) { student in
+                Text(student.name)
+            }
+            .navigationTitle("Classroom")
+        }
     }
 }
 
