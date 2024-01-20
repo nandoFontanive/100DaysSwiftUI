@@ -40,6 +40,7 @@ struct ContentView: View {
     }
 }
 */
+/*
 import SwiftUI
 
 struct ContentView: View {
@@ -58,4 +59,32 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
+*/
+import SwiftData
+import SwiftUI
+
+@Model
+class Student {
+    var id: UUID
+    var name: String
+    
+    init(id: UUID, name: String) {
+        self.id = id
+        self.name = name
+    }
+}
+
+struct ContentView: View {
+    
+    
+    var body: some View {
+        
+    }
+}
+
+#Preview {
+    ContentView()
+}
+
 
