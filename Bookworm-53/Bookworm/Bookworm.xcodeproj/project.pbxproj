@@ -14,6 +14,7 @@
 		20187E252B5C533500442D21 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20187E242B5C533500442D21 /* Book.swift */; };
 		20187E272B5C5A6000442D21 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20187E262B5C5A6000442D21 /* AddBookView.swift */; };
 		20DA78C02B5D7FA30056CAAB /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DA78BF2B5D7FA30056CAAB /* RatingView.swift */; };
+		20DA78C22B5D970D0056CAAB /* EmojiRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DA78C12B5D970C0056CAAB /* EmojiRatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		20187E242B5C533500442D21 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		20187E262B5C5A6000442D21 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		20DA78BF2B5D7FA30056CAAB /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		20DA78C12B5D970C0056CAAB /* EmojiRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiRatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +43,6 @@
 		20187E0A2B5C42A300442D21 = {
 			isa = PBXGroup;
 			children = (
-				20DA78BF2B5D7FA30056CAAB /* RatingView.swift */,
 				20187E152B5C42A300442D21 /* Bookworm */,
 				20187E142B5C42A300442D21 /* Products */,
 			);
@@ -60,7 +61,9 @@
 			children = (
 				20187E162B5C42A300442D21 /* BookwormApp.swift */,
 				20187E262B5C5A6000442D21 /* AddBookView.swift */,
+				20DA78BF2B5D7FA30056CAAB /* RatingView.swift */,
 				20187E182B5C42A300442D21 /* ContentView.swift */,
+				20DA78C12B5D970C0056CAAB /* EmojiRatingView.swift */,
 				20187E242B5C533500442D21 /* Book.swift */,
 				20187E1A2B5C42A400442D21 /* Assets.xcassets */,
 				20187E1C2B5C42A400442D21 /* Preview Content */,
@@ -150,6 +153,7 @@
 				20187E172B5C42A300442D21 /* BookwormApp.swift in Sources */,
 				20187E252B5C533500442D21 /* Book.swift in Sources */,
 				20DA78C02B5D7FA30056CAAB /* RatingView.swift in Sources */,
+				20DA78C22B5D970D0056CAAB /* EmojiRatingView.swift in Sources */,
 				20187E272B5C5A6000442D21 /* AddBookView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
