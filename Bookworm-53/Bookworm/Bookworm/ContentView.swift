@@ -25,10 +25,11 @@ struct ContentView: View {
                         HStack {
                             EmojiRatingView(rating: book.rating)
                                 .font(.largeTitle)
-                            
                             VStack(alignment: .leading) {
                                 Text(book.title)
                                     .font(.headline)
+                                    .foregroundStyle(EmojiRatingView(rating: 2) ? .red : .primary)
+                                    
                                 Text(book.author)
                                     .foregroundStyle(.secondary)
                             }
