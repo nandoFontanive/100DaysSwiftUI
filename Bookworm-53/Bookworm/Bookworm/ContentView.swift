@@ -35,6 +35,7 @@ struct ContentView: View {
                         }
                     }
                 }
+                .onDelete(perform: deleteBooks)
             }
             
             .navigationDestination(for: Book.self) { book in
@@ -50,6 +51,18 @@ struct ContentView: View {
             .sheet(isPresented: $isShowingAddBookView) {
                 AddBookView()
             }
+        }
+    }
+    
+    func deleteBooks(at offsets: IndexSet) {
+        for offset in offsets {
+        //find
+            let book = books[offset]
+                            
+            
+            //delete
+                             modelContext.delete(book)
+            
         }
     }
 }
