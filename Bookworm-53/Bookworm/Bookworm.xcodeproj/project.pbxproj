@@ -61,14 +61,14 @@
 		20187E152B5C42A300442D21 /* Bookworm */ = {
 			isa = PBXGroup;
 			children = (
-				20187E162B5C42A300442D21 /* BookwormApp.swift */,
 				20187E262B5C5A6000442D21 /* AddBookView.swift */,
-				20DA78BF2B5D7FA30056CAAB /* RatingView.swift */,
-				20187E182B5C42A300442D21 /* ContentView.swift */,
-				20DA78C12B5D970C0056CAAB /* EmojiRatingView.swift */,
 				20187E242B5C533500442D21 /* Book.swift */,
-				20187E1A2B5C42A400442D21 /* Assets.xcassets */,
+				20187E162B5C42A300442D21 /* BookwormApp.swift */,
+				20187E182B5C42A300442D21 /* ContentView.swift */,
 				20DA78C32B5E98E70056CAAB /* DetailView.swift */,
+				20DA78C12B5D970C0056CAAB /* EmojiRatingView.swift */,
+				20DA78BF2B5D7FA30056CAAB /* RatingView.swift */,
+				20187E1A2B5C42A400442D21 /* Assets.xcassets */,
 				20187E1C2B5C42A400442D21 /* Preview Content */,
 			);
 			path = Bookworm;
