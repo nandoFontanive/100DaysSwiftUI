@@ -10,7 +10,11 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
-    @Query var books: [Book]
+    @Query(sort: [
+        SortDescriptor(\Book.title),
+        SortDescriptor(\Book.author)
+    ]) var books: [Book]
+    
     @State private var isShowingAddBookView = false
     
     var body: some View {
@@ -30,25 +34,25 @@ struct ContentView: View {
                             }
                         }
                     }
-                    .navigationDestination(for: Book.self) { book in
-                    DetailView(book: book)}
                 }
             }
-        }
-                .navigationTitle("Bookworm")
-                .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button("Add Book", systemImage: "plus") {
-                            isShowingAddBookView.toggle()
-                        }
+            
+            .navigationDestination(for: Book.self) { book in
+                DetailView(book: book)}
+            .navigationTitle("Bookworm")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Add Book", systemImage: "plus") {
+                        isShowingAddBookView.toggle()
                     }
                 }
-                .sheet(isPresented: $isShowingAddBookView) {
-                    AddBookView()
-                }
+            }
+            .sheet(isPresented: $isShowingAddBookView) {
+                AddBookView()
+            }
         }
     }
-
+}
 
 #Preview {
     ContentView()
