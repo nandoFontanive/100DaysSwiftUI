@@ -4,6 +4,7 @@
 //
 //  Created by Fernando Fontanive on 20/01/24.
 //
+//  Modify ContentView so that books rated as 1 star are highlighted somehow, such as having their name shown in red.
 
 import SwiftData
 import SwiftUI
@@ -17,6 +18,8 @@ struct ContentView: View {
     
     @State private var isShowingAddBookView = false
     
+//    let isOneStarBook = books.rating > 1 ? true : false
+    
     var body: some View {
         NavigationStack {
             List {
@@ -27,8 +30,8 @@ struct ContentView: View {
                                 .font(.largeTitle)
                             VStack(alignment: .leading) {
                                 Text(book.title)
+                                    .foregroundStyle((book.rating > 1) ? .red : .primary)
                                     .font(.headline)
-                                    .foregroundStyle(EmojiRatingView(rating: 2) ? .red : .primary)
                                     
                                 Text(book.author)
                                     .foregroundStyle(.secondary)

@@ -4,6 +4,8 @@
 //
 //  Created by Fernando Fontanive on 20/01/24.
 //
+// Right now it’s possible to select no title, author, or genre for books, which causes a problem for the detail view. Please fix this, either by forcing defaults, validating the form, or showing a default picture for unknown genres – you can choose.
+
 
 import SwiftUI
 
@@ -47,6 +49,7 @@ struct AddBookView: View {
                         dismiss()
                     }
                 }
+                .disabled(title.isEmpty || author.isEmpty || genre.isEmpty)
             }
             .navigationTitle("Add Book")
         }
