@@ -38,12 +38,10 @@ struct DetailView: View {
             Text(book.review)
                 .padding()
             
-            if let date = book.date {
-                Label(date.formatted(date: .abbreviated, time: .omitted), systemImage: "calendar.badge.clock")
-                    .padding()
-            }
-            Text("Added on \(book.date)")
-                
+            //Text("Added on \(book.date)") funciona
+            // tip from https://www.hackingwithswift.com/forums/100-days-of-swiftui/bookworm-challenge-3/25056
+            
+            Text("Added on \(Date.now, format: .dateTime.day().month().year())")
             
             RatingView(rating: .constant(book.rating))
                 .font(.largeTitle)
