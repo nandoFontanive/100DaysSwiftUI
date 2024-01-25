@@ -41,7 +41,6 @@
 		20DA78C52B60216E0056CAAB = {
 			isa = PBXGroup;
 			children = (
-				20D8775B2B61E795009311A3 /* UsersView.swift */,
 				20DA78D02B60216F0056CAAB /* SwiftDataProject */,
 				20DA78CF2B60216F0056CAAB /* Products */,
 			);
@@ -60,6 +59,7 @@
 			children = (
 				20DA78D12B60216F0056CAAB /* SwiftDataProjectApp.swift */,
 				20DA78E12B6029680056CAAB /* EditUserView.swift */,
+				20D8775B2B61E795009311A3 /* UsersView.swift */,
 				20DA78D32B60216F0056CAAB /* ContentView.swift */,
 				20DA78DF2B6024A80056CAAB /* User.swift */,
 				20DA78D52B6021700056CAAB /* Assets.xcassets */,
