@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20D8775C2B61E795009311A3 /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D8775B2B61E795009311A3 /* UsersView.swift */; };
 		20DA78D22B60216F0056CAAB /* SwiftDataProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DA78D12B60216F0056CAAB /* SwiftDataProjectApp.swift */; };
 		20DA78D42B60216F0056CAAB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DA78D32B60216F0056CAAB /* ContentView.swift */; };
 		20DA78D62B6021700056CAAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20DA78D52B6021700056CAAB /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20D8775B2B61E795009311A3 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
 		20DA78CE2B60216F0056CAAB /* SwiftDataProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDataProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20DA78D12B60216F0056CAAB /* SwiftDataProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataProjectApp.swift; sourceTree = "<group>"; };
 		20DA78D32B60216F0056CAAB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -39,6 +41,7 @@
 		20DA78C52B60216E0056CAAB = {
 			isa = PBXGroup;
 			children = (
+				20D8775B2B61E795009311A3 /* UsersView.swift */,
 				20DA78D02B60216F0056CAAB /* SwiftDataProject */,
 				20DA78CF2B60216F0056CAAB /* Products */,
 			);
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20D8775C2B61E795009311A3 /* UsersView.swift in Sources */,
 				20DA78D42B60216F0056CAAB /* ContentView.swift in Sources */,
 				20DA78E22B6029680056CAAB /* EditUserView.swift in Sources */,
 				20DA78D22B60216F0056CAAB /* SwiftDataProjectApp.swift in Sources */,
