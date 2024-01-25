@@ -58,6 +58,20 @@ struct ContentView: View {
                         modelContext.insert(third)
                         modelContext.insert(fourth)
                     }
+                    Menu("Sort", systemImage: "arrow.up.arrow.down") {
+                        Picker("Sort", selection: $sortOrder) {
+                            Text("Sort by name")
+                                .tag([
+                                    SortDescriptor(\User.name),
+                                    SortDescriptor(\User.joinDate),
+                                ])
+                            Text("Sort by join date")
+                                .tag([
+                                    SortDescriptor(\User.joinDate),
+                                    SortDescriptor(\User.joinDate),
+                                ])
+                        }
+                    }
                 }
         }
     }
