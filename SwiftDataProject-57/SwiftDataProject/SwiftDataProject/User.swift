@@ -22,16 +22,3 @@ class User {
     }
 }
 
-@Model
-class Job {
-    @Environment(\.modelContext) var modelContext
-    var name: String
-    var priority: Int
-    var owner: User?
-    
-    init(name: String, priority: Int, owner: User? = nil) {
-        self.name = name
-        self.priority = priority
-        self.owner = owner
-    }
-}

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		20D8775C2B61E795009311A3 /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D8775B2B61E795009311A3 /* UsersView.swift */; };
+		20D8775E2B63F56C009311A3 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D8775D2B63F56C009311A3 /* Job.swift */; };
 		20DA78D22B60216F0056CAAB /* SwiftDataProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DA78D12B60216F0056CAAB /* SwiftDataProjectApp.swift */; };
 		20DA78D42B60216F0056CAAB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DA78D32B60216F0056CAAB /* ContentView.swift */; };
 		20DA78D62B6021700056CAAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20DA78D52B6021700056CAAB /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		20D8775B2B61E795009311A3 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
+		20D8775D2B63F56C009311A3 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		20DA78CE2B60216F0056CAAB /* SwiftDataProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDataProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20DA78D12B60216F0056CAAB /* SwiftDataProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataProjectApp.swift; sourceTree = "<group>"; };
 		20DA78D32B60216F0056CAAB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				20D8775B2B61E795009311A3 /* UsersView.swift */,
 				20DA78D32B60216F0056CAAB /* ContentView.swift */,
 				20DA78DF2B6024A80056CAAB /* User.swift */,
+				20D8775D2B63F56C009311A3 /* Job.swift */,
 				20DA78D52B6021700056CAAB /* Assets.xcassets */,
 				20DA78D72B6021700056CAAB /* Preview Content */,
 			);
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20D8775C2B61E795009311A3 /* UsersView.swift in Sources */,
+				20D8775E2B63F56C009311A3 /* Job.swift in Sources */,
 				20DA78D42B60216F0056CAAB /* ContentView.swift in Sources */,
 				20DA78E22B6029680056CAAB /* EditUserView.swift in Sources */,
 				20DA78D22B60216F0056CAAB /* SwiftDataProjectApp.swift in Sources */,
