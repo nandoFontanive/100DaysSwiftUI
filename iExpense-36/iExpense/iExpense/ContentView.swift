@@ -16,7 +16,7 @@ struct ExpenseItem: Identifiable, Codable {
 }
 
 //Start by upgrading it to use SwiftData.
-
+//@Observable
 @Model
 class Expenses {
     var items = [ExpenseItem]() {
@@ -46,7 +46,7 @@ class Expenses {
 
 struct ContentView: View {
     @State private var expenses = Expenses()
-
+    @Query var expenses: [Expense]
 //    @State private var showingAddExpense = false
     
     var body: some View {
