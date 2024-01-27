@@ -5,6 +5,7 @@
 //  Created by Fernando Fontanive on 07/01/2024.
 //
 
+import SwiftData
 import SwiftUI
 
 struct ExpenseItem: Identifiable, Codable {
@@ -14,7 +15,9 @@ struct ExpenseItem: Identifiable, Codable {
     let amount: Double
 }
 
-@Observable
+//Start by upgrading it to use SwiftData.
+
+@Model
 class Expenses {
     var items = [ExpenseItem]() {
         didSet {
