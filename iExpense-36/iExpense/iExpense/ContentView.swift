@@ -45,8 +45,9 @@ class Expenses {
 //Change project 7 (iExpense) so that it uses NavigationLink for adding new expenses rather than a sheet. (Tip: The dismiss() code works great here, but you might want to add the navigationBarBackButtonHidden() modifier so they have to explicitly choose Cancel.)
 
 struct ContentView: View {
-    @State private var expenses = Expenses()
-    @Query var expenses: [Expense]
+//    @State private var expenses = Expenses()
+    @Query var expenses: [Expenses]
+    @Environment(\.modelContext) var modelContext
 //    @State private var showingAddExpense = false
     
     var body: some View {
