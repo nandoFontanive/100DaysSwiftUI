@@ -53,7 +53,7 @@ struct AddView: View {
                     Button("Save") {
                         let item = ExpenseItem(name: name, type: type, amount: amount)
 //                        expenses.items.append(item)
-                        modelContext.insert(item)
+                        modelContext.insert(Expenses)
                         dismiss()
                     }
                 }

@@ -30,24 +30,29 @@ class Expenses {
     var personalItems: [ExpenseItem] {
         items.filter { $0.type == "Personal"}
     }
-    
-    init() {
-        if let savedItems = UserDefaults.standard.data(forKey: "Items") {
-            if let decodedItems = try? JSONDecoder().decode([ExpenseItem].self, from: savedItems) {
-                items = decodedItems
-                return
-            }
-        }
-        
-        items = []
+  
+    init(items: items = [ExpenseItem]()) {
+        self.items = items
     }
+//    init() {
+//        if let savedItems = UserDefaults.standard.data(forKey: "Items") {
+//            if let decodedItems = try? JSONDecoder().decode([ExpenseItem].self, from: savedItems) {
+//                items = decodedItems
+//                return
+//            }
+//        }
+//        
+//        items = []
+//    }
 }
 //Change project 7 (iExpense) so that it uses NavigationLink for adding new expenses rather than a sheet. (Tip: The dismiss() code works great here, but you might want to add the navigationBarBackButtonHidden() modifier so they have to explicitly choose Cancel.)
 
 struct ContentView: View {
 //    @State private var expenses = Expenses()
-    @Query var expenses: [Expenses]
     @Environment(\.modelContext) var modelContext
+//    @Query var expenses: [Expenses]
+    @Query var items: [Expenses]
+
 //    @State private var showingAddExpense = false
     
     var body: some View {
