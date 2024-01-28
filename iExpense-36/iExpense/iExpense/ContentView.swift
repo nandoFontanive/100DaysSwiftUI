@@ -5,35 +5,38 @@
 //  Created by Fernando Fontanive on 07/01/2024.
 //
 
-import SwiftData
 import SwiftUI
+import SwiftData
 
-struct ExpenseItem: Identifiable, Codable {
+@Model
+class ExpenseItem: Identifiable {
     var id = UUID()
     let name: String
     let type: String
     let amount: Double
+    
+    init(id: UUID = UUID(), name: String, type: String, amount: Double) {
+        self.id = id
+        self.name = name
+        self.type = type
+        self.amount = amount
+    }
 }
 
-//Start by upgrading it to use SwiftData.
 //@Observable
-@Model
-class Expenses {
-    var items = [ExpenseItem]() {
-        didSet {
-            if let encoded = try? JSONEncoder().encode(items) {
-                UserDefaults.standard.set(encoded, forKey: "Items")
-            }
-        }
-    }
-    
-    var personalItems: [ExpenseItem] {
-        items.filter { $0.type == "Personal"}
-    }
-  
-    init(items: items = [ExpenseItem]()) {
-        self.items = items
-    }
+//class Expenses {
+//    var items = [ExpenseItem]() {
+//        didSet {
+//            if let encoded = try? JSONEncoder().encode(items) {
+//                UserDefaults.standard.set(encoded, forKey: "Items")
+//            }
+//        }
+//    }
+//    
+//    var personalItems: [ExpenseItem] {
+//        items.filter { $0.type == "Personal"}
+//    }
+//    
 //    init() {
 //        if let savedItems = UserDefaults.standard.data(forKey: "Items") {
 //            if let decodedItems = try? JSONDecoder().decode([ExpenseItem].self, from: savedItems) {
@@ -44,14 +47,11 @@ class Expenses {
 //        
 //        items = []
 //    }
-}
+//}
 //Change project 7 (iExpense) so that it uses NavigationLink for adding new expenses rather than a sheet. (Tip: The dismiss() code works great here, but you might want to add the navigationBarBackButtonHidden() modifier so they have to explicitly choose Cancel.)
 
 struct ContentView: View {
-//    @State private var expenses = Expenses()
-    @Environment(\.modelContext) var modelContext
-//    @Query var expenses: [Expenses]
-    @Query var items: [Expenses]
+    @s private var expenses: [ExpenseItem]
 
 //    @State private var showingAddExpense = false
     
@@ -63,7 +63,7 @@ struct ContentView: View {
             
             List {
                 Section {
-                    ForEach(expenses.items) { item in
+                    ForEach(expenses) { item in
                         if item.type == "Personal" {
                             HStack {
                                 //                                VStack(alignment: .leading) {
@@ -82,7 +82,7 @@ struct ContentView: View {
                     Text("Personal expenses")
                 }
                 Section {
-                    ForEach(expenses.items) { item in
+                    ForEach(expenses) { item in
                         if item.type == "Business" {
                             HStack {
                                 VStack(alignment: .leading) {
@@ -105,7 +105,7 @@ struct ContentView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     
                         NavigationLink("Add Expense") {
-                            AddView(expenses: expenses)
+                            AddView()
                         }
                     
                 }
@@ -118,7 +118,7 @@ struct ContentView: View {
     }
     
     func removeItems(at offsets: IndexSet) {
-        expenses.items.remove(atOffsets: offsets)
+//        expenses.remove(atOffsets: offsets)
     }
 }
 

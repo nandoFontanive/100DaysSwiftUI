@@ -5,7 +5,6 @@
 //  Created by Fernando Fontanive on 08/01/24.
 //
 
-import SwiftData
 import SwiftUI
 
 struct AddView: View {
@@ -15,12 +14,10 @@ struct AddView: View {
     @State private var type = "Personal"
     @State private var amount = 0.0
     
-    @Query var expenses: [Expenses]
-    @Environment(\.modelContext) var modelContext
-    
     //    @State private var titulo = "titulo"
     
 //    var expenses: Expenses
+    @Environment(\.modelContext) var modelContext
     
     let types = ["Business", "Personal"]
     
@@ -53,7 +50,7 @@ struct AddView: View {
                     Button("Save") {
                         let item = ExpenseItem(name: name, type: type, amount: amount)
 //                        expenses.items.append(item)
-                        modelContext.insert(Expenses)
+                        modelContext.insert(item)
                         dismiss()
                     }
                 }
@@ -73,6 +70,6 @@ struct AddView: View {
 }
 
 
-//#Preview {
-//    AddView(expenses: Expenses())
-//}
+#Preview {
+    AddView()
+}
