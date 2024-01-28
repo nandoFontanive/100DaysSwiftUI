@@ -51,7 +51,7 @@ class ExpenseItem: Identifiable {
 //Change project 7 (iExpense) so that it uses NavigationLink for adding new expenses rather than a sheet. (Tip: The dismiss() code works great here, but you might want to add the navigationBarBackButtonHidden() modifier so they have to explicitly choose Cancel.)
 
 struct ContentView: View {
-    @s private var expenses: [ExpenseItem]
+    @Query private var expenses: [ExpenseItem]
 
 //    @State private var showingAddExpense = false
     
@@ -124,6 +124,3 @@ struct ContentView: View {
 
 
 
-#Preview {
-    ContentView()
-}
