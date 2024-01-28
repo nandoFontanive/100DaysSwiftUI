@@ -10,7 +10,7 @@ import SwiftUI
 struct AddView: View {
     @Environment(\.dismiss) var dismiss
     
-    @State private var name = "despesa"
+    @State private var name = "despesa teste"
     @State private var type = "Personal"
     @State private var amount = 0.0
     
