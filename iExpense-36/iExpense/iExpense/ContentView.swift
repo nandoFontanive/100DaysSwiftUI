@@ -32,11 +32,11 @@ class ExpenseItem: Identifiable {
 //            }
 //        }
 //    }
-//    
+//
 //    var personalItems: [ExpenseItem] {
 //        items.filter { $0.type == "Personal"}
 //    }
-//    
+//
 //    init() {
 //        if let savedItems = UserDefaults.standard.data(forKey: "Items") {
 //            if let decodedItems = try? JSONDecoder().decode([ExpenseItem].self, from: savedItems) {
@@ -44,22 +44,22 @@ class ExpenseItem: Identifiable {
 //                return
 //            }
 //        }
-//        
+//
 //        items = []
 //    }
 //}
 //Change project 7 (iExpense) so that it uses NavigationLink for adding new expenses rather than a sheet. (Tip: The dismiss() code works great here, but you might want to add the navigationBarBackButtonHidden() modifier so they have to explicitly choose Cancel.)
 
 struct ContentView: View {
-    @Query private var expenses: [ExpenseItem]
-
-//    @State private var showingAddExpense = false
+    @Query var expenses: [ExpenseItem] = []
+    
+    //    @State private var showingAddExpense = false
     
     var body: some View {
         NavigationStack {
-//            NavigationLink("Add Expense") {
-//                AddView(expenses: expenses)
-//            }
+            //            NavigationLink("Add Expense") {
+            //                AddView(expenses: expenses)
+            //            }
             
             List {
                 Section {
@@ -104,21 +104,21 @@ struct ContentView: View {
             .toolbar() {
                 ToolbarItem(placement: .topBarTrailing) {
                     
-                        NavigationLink("Add Expense") {
-                            AddView()
-                        }
+                    NavigationLink("Add Expense") {
+                        AddView()
+                    }
                     
                 }
             }
             .navigationBarBackButtonHidden()
-//            .sheet(isPresented: $showingAddExpense) {
-//                AddView(expenses: expenses)
-//            }
+            //            .sheet(isPresented: $showingAddExpense) {
+            //                AddView(expenses: expenses)
+            //            }
         }
     }
     
     func removeItems(at offsets: IndexSet) {
-//        expenses.remove(atOffsets: offsets)
+        //        expenses.remove(atOffsets: offsets)
     }
 }
 
