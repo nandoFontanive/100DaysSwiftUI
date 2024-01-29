@@ -66,7 +66,20 @@ struct ContentView: View {
             //            NavigationLink("Add Expense") {
             //                AddView(expenses: expenses)
             //            }
-            
+            Menu("Sort", systemImage: "arrow.up.arrow.down.square") {
+                Picker("Sort", selection: $sortOrder) {
+                    Text("By name")
+                        .tag([
+                            SortDescriptor(\ExpenseItem.name),
+                            SortDescriptor(\ExpenseItem.amount),
+                        ])
+                    Text("By amount")
+                        .tag([
+                            SortDescriptor(\ExpenseItem.amount),
+                            SortDescriptor(\ExpenseItem.name)
+                        ])
+                }
+            }
             List {
                 Section {
                     ForEach(expenses) { item in
@@ -117,20 +130,7 @@ struct ContentView: View {
                 
                 
                 
-                Menu("Sort", systemImage: "arrow.up.arrow.down.square") {
-                    Picker("Sort", selection: $sortOrder) {
-                        Text("By name")
-                            .tag([
-                                SortDescriptor(\ExpenseItem.name),
-                                SortDescriptor(\ExpenseItem.amount),
-                            ])
-                        Text("By amount")
-                            .tag([
-                                SortDescriptor(\ExpenseItem.amount),
-                                SortDescriptor(\ExpenseItem.name)
-                            ])
-                    }
-                }
+                
             }
             .navigationBarBackButtonHidden()
             //            .sheet(isPresented: $showingAddExpense) {
