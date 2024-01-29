@@ -51,10 +51,13 @@ class ExpenseItem: Identifiable {
 //Change project 7 (iExpense) so that it uses NavigationLink for adding new expenses rather than a sheet. (Tip: The dismiss() code works great here, but you might want to add the navigationBarBackButtonHidden() modifier so they have to explicitly choose Cancel.)
 
 struct ContentView: View {
+    @Environment(\.modelContext) var modelContext
+    
     @Query var expenses: [ExpenseItem] = []
-    @State private var sortOrder = [
+    @State var sortOrder = [
         SortDescriptor(\ExpenseItem.name),
-        SortDescriptor(\ExpenseItem.amount)]
+        SortDescriptor(\ExpenseItem.amount)
+    ]
     
     //    @State private var showingAddExpense = false
     
@@ -132,7 +135,9 @@ struct ContentView: View {
             //            }
         }
     }
-}
+    
     func removeItems(at offsets: IndexSet) {
-                expenses.remove(atOffsets: offsets)
+//        expenses.remove(atOffsets: offsets)
     }
+}
+
