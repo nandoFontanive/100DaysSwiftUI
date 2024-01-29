@@ -52,6 +52,9 @@ class ExpenseItem: Identifiable {
 
 struct ContentView: View {
     @Query var expenses: [ExpenseItem] = []
+    @State private var sortOrder = [
+        SortDescriptor(\ExpenseItem.name),
+        SortDescriptor(\ExpenseItem.amount)]
     
     //    @State private var showingAddExpense = false
     
