@@ -114,6 +114,9 @@ struct ContentView: View {
                         AddView()
                     }
                 }
+                
+                
+                
                 Menu("Sort", systemImage: "arrow.up.arrow.down.square") {
                     Picker("Sort", selection: $sortOrder) {
                         Text("By name")
