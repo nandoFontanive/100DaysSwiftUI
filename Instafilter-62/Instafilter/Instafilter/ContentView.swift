@@ -127,7 +127,23 @@ struct ContentView: View {
                     
                 }
             }
+            .padding([.horizontal, .bottom])
+            
+            .navigationTitle("Instafilter")
+        }
+    }
+    func changeFilter() {
+        
+    }
+    
+    func loadImage() {
+        Task {
+            guard let imageData = try await selectedItem?.loadTransferable(type: Data.self) else { return }
+            guard let inputImage = UIImage(data: imageData) else { return }
             
         }
+    }
+    func applyProcessing() {
+        currentFilter.intensity = Float(filterIntensity)
     }
 }
