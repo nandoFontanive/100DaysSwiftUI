@@ -53,35 +53,81 @@
 
 
 
+//import PhotosUI
+//import SwiftUI
+//
+//struct ContentView: View {
+//    @State private var pickerItems = [PhotosPickerItem]()
+//    @State private var selectedImages = [Image]()
+//    
+//    var body: some View {
+//        VStack {
+//            PhotosPicker(selection: $pickerItems, maxSelectionCount: 5, matching: .any(of: [.images, .not(.screenshots)])) {
+//                Label("Select", systemImage: "photo")
+//            }
+//            ScrollView {
+//                ForEach(0..<selectedImages.count, id:\.self) { i in
+//                    selectedImages[i]
+//                        .resizable()
+//                        .scaledToFit()
+//                }
+//            }
+//        }
+//        .onChange(of: pickerItems) {
+//            Task {
+//                selectedImages.removeAll()
+//                for item in pickerItems {
+//                    if let loadedImage = try await item.loadTransferable(type: Image.self) {
+//                        selectedImages.append(loadedImage)
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
+
+import CoreImage
+import CoreImage.CIFilterBuiltins
 import PhotosUI
 import SwiftUI
 
 struct ContentView: View {
-    @State private var pickerItems = [PhotosPickerItem]()
-    @State private var selectedImages = [Image]()
+    @State private var processedImage: Image?
+    @State private var filterIntensity = 0.5
+    @State private var selectedItem: PhotosPickerItem?
+    
+    @State private var currentFilter = CIFilter.sepiaTone()
+    let context = CIContext()
     
     var body: some View {
-        VStack {
-            PhotosPicker(selection: $pickerItems, maxSelectionCount: 5, matching: .any(of: [.images, .not(.screenshots)])) {
-                Label("Select", systemImage: "photo")
-            }
-            ScrollView {
-                ForEach(0..<selectedImages.count, id:\.self) { i in
-                    selectedImages[i]
-                        .resizable()
-                        .scaledToFit()
-                }
-            }
-        }
-        .onChange(of: pickerItems) {
-            Task {
-                selectedImages.removeAll()
-                for item in pickerItems {
-                    if let loadedImage = try await item.loadTransferable(type: Image.self) {
-                        selectedImages.append(loadedImage)
+        NavigationStack {
+            VStack {
+                Spacer()
+                
+                PhotosPicker(selection: $selectedItem) {
+                    if let processedImage {
+                        processedImage
+                            .resizable()
+                            .scaledToFit()
+                    } else {
+                        ContentUnavailableView("No picture", systemImage: "photo.badge.plus", description: Text("Tap to import"))
                     }
                 }
+                .buttonStyle(.plain)
+                .onChange(of: selectedItem, loadImage)
+                
+                Spacer()
+                HStack {
+                    Text("Intensity")
+                    Slider(value: $filterIntensity)
+                }
+                HStack {
+                    Button("Change intensity", action: changeFilter)
+                    Spacer()
+                    
+                }
             }
+            
         }
     }
 }
