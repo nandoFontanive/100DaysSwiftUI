@@ -176,18 +176,18 @@ struct ContentView: View {
             currentFilter.setValue(filterIntensity * 200, forKey: kCIInputRadiusKey) }
         if inputKeys.contains(kCIInputScaleKey) {
             currentFilter.setValue(filterIntensity * 10, forKey: kCIInputScaleKey) }
-        
+    
         guard let outputImage = currentFilter.outputImage else { return }
         guard let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else { return }
-        
+    
         let uiImage = UIImage(cgImage: cgImage)
         processedImage = Image(uiImage: uiImage)
     }
-    
+
     @MainActor func setFilter(_ filter: CIFilter) {
         currentFilter = filter
         loadImage()
-        
+
         filterCount += 1
         if filterCount >= 2 {
             requestReview()
