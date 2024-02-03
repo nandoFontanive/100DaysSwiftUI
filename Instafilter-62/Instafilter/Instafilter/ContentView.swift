@@ -124,7 +124,15 @@ struct ContentView: View {
                 Spacer()
                 HStack {
                     Text("Intensity")
-                    Slider(value: $filterIntensity)
+                    //Try making the Slider and Change Filter buttons disabled if there is no image selected.
+                    if processedImage != nil {
+                        Slider(value: $filterIntensity)
+                            .disabled(false)
+                    }
+                    else {
+                        Slider(value: $filterIntensity)
+                            .disabled(true)
+                    }
                 }
                 .onChange(of: filterIntensity, applyProcessing)
                 HStack {
