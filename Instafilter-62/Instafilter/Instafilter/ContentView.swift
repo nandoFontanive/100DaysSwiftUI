@@ -95,6 +95,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var processedImage: Image?
     @State private var filterIntensity = 0.5
+    @State private var radiusIntensity = 100.0
     @State private var selectedItem: PhotosPickerItem?
     @State private var showingFilters = false
     
@@ -131,6 +132,15 @@ struct ContentView: View {
                     }
                     else {
                         Slider(value: $filterIntensity)
+                            .disabled(true)
+                    }
+                    Text("Radius")
+                    if processedImage != nil {
+                        Slider(value: $radiusIntensity)
+                            .disabled(false)
+                    }
+                    else {
+                        Slider(value: $radiusIntensity)
                             .disabled(true)
                     }
                 }
@@ -181,7 +191,7 @@ struct ContentView: View {
         if inputKeys.contains(kCIInputIntensityKey) {
             currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey) }
         if inputKeys.contains(kCIInputRadiusKey) {
-            currentFilter.setValue(filterIntensity * 200, forKey: kCIInputRadiusKey) }
+            currentFilter.setValue(radiusIntensity * 200, forKey: kCIInputRadiusKey) }
         if inputKeys.contains(kCIInputScaleKey) {
             currentFilter.setValue(filterIntensity * 10, forKey: kCIInputScaleKey) }
     
