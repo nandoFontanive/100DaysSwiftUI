@@ -95,7 +95,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var processedImage: Image?
     @State private var filterIntensity = 0.5
-    @State private var radiusIntensity = 100.0
+    @State private var radiusIntensity = 0.5
     @State private var selectedItem: PhotosPickerItem?
     @State private var showingFilters = false
     
@@ -123,6 +123,7 @@ struct ContentView: View {
                 .onChange(of: selectedItem, loadImage)
                 
                 Spacer()
+                
                 HStack {
                     Text("Intensity")
                     //Try making the Slider and Change Filter buttons disabled if there is no image selected.
@@ -152,7 +153,6 @@ struct ContentView: View {
                     if let processedImage {
                         ShareLink(item: processedImage, preview: SharePreview("Instafilter image", image: processedImage))
                     }
-                    
                 }
             }
             .padding([.horizontal, .bottom])
@@ -191,7 +191,7 @@ struct ContentView: View {
         if inputKeys.contains(kCIInputIntensityKey) {
             currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey) }
         if inputKeys.contains(kCIInputRadiusKey) {
-            currentFilter.setValue(radiusIntensity * 200, forKey: kCIInputRadiusKey) }
+            currentFilter.setValue(radiusIntensity * 20, forKey: kCIInputRadiusKey) }
         if inputKeys.contains(kCIInputScaleKey) {
             currentFilter.setValue(filterIntensity * 10, forKey: kCIInputScaleKey) }
     
@@ -207,7 +207,7 @@ struct ContentView: View {
         loadImage()
 
         filterCount += 1
-        if filterCount >= 2 {
+        if filterCount >= 20 {
             requestReview()
         }
     }
