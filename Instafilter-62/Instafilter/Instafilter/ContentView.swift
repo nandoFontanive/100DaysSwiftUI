@@ -95,7 +95,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var processedImage: Image?
     @State private var filterIntensity = 0.5
-    @State private var radiusIntensity = 0.5
+    @State private var radiusIntensity = 10.0
     @State private var selectedItem: PhotosPickerItem?
     @State private var showingFilters = false
     
@@ -127,6 +127,7 @@ struct ContentView: View {
                 HStack {
                     Text("Intensity")
                     //Try making the Slider and Change Filter buttons disabled if there is no image selected.
+                    //Experiment with having more than one slider, to control each of the input keys you care about. For example, you might have one for radius and one for intensity.
                     if processedImage != nil {
                         Slider(value: $filterIntensity)
                             .disabled(false)
@@ -146,6 +147,7 @@ struct ContentView: View {
                     }
                 }
                 .onChange(of: filterIntensity, applyProcessing)
+                .onChange(of: radiusIntensity, applyProcessing)
                 HStack {
                     Button("Change filter", action: changeFilter)
                     Spacer()
@@ -191,7 +193,7 @@ struct ContentView: View {
         if inputKeys.contains(kCIInputIntensityKey) {
             currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey) }
         if inputKeys.contains(kCIInputRadiusKey) {
-            currentFilter.setValue(radiusIntensity * 20, forKey: kCIInputRadiusKey) }
+            currentFilter.setValue(radiusIntensity * 50, forKey: kCIInputRadiusKey) }
         if inputKeys.contains(kCIInputScaleKey) {
             currentFilter.setValue(filterIntensity * 10, forKey: kCIInputScaleKey) }
     
