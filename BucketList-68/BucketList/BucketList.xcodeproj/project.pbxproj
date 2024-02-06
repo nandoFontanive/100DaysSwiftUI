@@ -13,6 +13,7 @@
 		20F496572B701A64009A4629 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20F496562B701A64009A4629 /* Preview Assets.xcassets */; };
 		20F4965F2B72608E009A4629 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F4965E2B72608E009A4629 /* Location.swift */; };
 		20F496612B7282AE009A4629 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F496602B7282AE009A4629 /* EditView.swift */; };
+		20F496632B72AAA1009A4629 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F496622B72AAA1009A4629 /* Result.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		20F4965D2B71A44E009A4629 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		20F4965E2B72608E009A4629 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		20F496602B7282AE009A4629 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		20F496622B72AAA1009A4629 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,7 @@
 			children = (
 				20F4965E2B72608E009A4629 /* Location.swift */,
 				20F496602B7282AE009A4629 /* EditView.swift */,
+				20F496622B72AAA1009A4629 /* Result.swift */,
 				20F4964E2B701A62009A4629 /* BucketList */,
 				20F4964D2B701A62009A4629 /* Products */,
 			);
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20F496522B701A62009A4629 /* ContentView.swift in Sources */,
+				20F496632B72AAA1009A4629 /* Result.swift in Sources */,
 				20F4965F2B72608E009A4629 /* Location.swift in Sources */,
 				20F496612B7282AE009A4629 /* EditView.swift in Sources */,
 				20F496502B701A62009A4629 /* BucketListApp.swift in Sources */,
