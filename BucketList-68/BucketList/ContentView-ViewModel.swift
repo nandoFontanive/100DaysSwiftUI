@@ -5,6 +5,7 @@
 //  Created by Fernando Fontanive on 07/02/24.
 //
 
+import CoreLocation
 import Foundation
 import MapKit
 
