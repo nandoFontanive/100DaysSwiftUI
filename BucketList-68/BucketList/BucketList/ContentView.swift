@@ -10,14 +10,23 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var viewModel = ViewModel()
+    @State private var selectedPlace: Location?
+    let startPosition = MapCameraPosition.region(
+        MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 56, longitude: -3),
+            span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
+        )
+    )
+    
+    
     
     var body: some View {
         if viewModel.isUnlocked {
             MapReader { proxy in
                 Map(initialPosition: startPosition) {
-                    forEach(viewModel.locations) { location in
+                    ForEach(viewModel.locations) { location in
                         Annotation(location.name, coordinate: location.coordinate) {
-                            Image(Image(systemName: "star.circle"))
+                            Image(systemName: "star.circle")
                                 .resizable()
                                 .foregroundStyle(.red)
                                 .frame(width: 44, height: 44)
@@ -34,21 +43,29 @@ struct ContentView: View {
                         viewModel.addLocation(at: coordinate)
                     }
                 }
-                .sheet(item: $viewModel.selectedPlace) in
+            }
+            .sheet(item: $viewModel.selectedPlace) { place in
                 EditView(location: place) {
                     viewModel.update(location: $0)
                 }
             }
         }
+        
+        
+        else {
+            Button("Unlock Places", action: viewModel.authenticate)
+                .padding()
+                .background(.blue)
+                .foregroundStyle(.white)
+                .clipShape(.capsule)
+        }
     }
-    else {
-        //Button here
-    }
-    
-    
-    
-    
-    
-    #Preview {
-        ContentView()
-    }
+}
+
+
+
+
+
+#Preview {
+    ContentView()
+}
