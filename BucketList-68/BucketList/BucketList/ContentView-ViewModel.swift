@@ -10,4 +10,10 @@ import Foundation
 import LocalAuthentication
 import MapKit
 
-
+extension ContentView {
+    @Observable
+    class ViewModel {
+        var locations = [Location]()
+        var selectedPlace: Location?
+    }
+}
