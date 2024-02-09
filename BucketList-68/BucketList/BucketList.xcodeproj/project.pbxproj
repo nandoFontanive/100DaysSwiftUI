@@ -62,11 +62,11 @@
 			children = (
 				20F4965D2B71A44E009A4629 /* Info.plist */,
 				20F4964F2B701A62009A4629 /* BucketListApp.swift */,
-				20F4965E2B72608E009A4629 /* Location.swift */,
-				20F496602B7282AE009A4629 /* EditView.swift */,
-				20F496622B72AAA1009A4629 /* Result.swift */,
-				20F496642B73BE42009A4629 /* ContentView-ViewModel.swift */,
 				20F496512B701A62009A4629 /* ContentView.swift */,
+				20F496642B73BE42009A4629 /* ContentView-ViewModel.swift */,
+				20F496602B7282AE009A4629 /* EditView.swift */,
+				20F4965E2B72608E009A4629 /* Location.swift */,
+				20F496622B72AAA1009A4629 /* Result.swift */,
 				20F496532B701A64009A4629 /* Assets.xcassets */,
 				20F496552B701A64009A4629 /* Preview Content */,
 			);
