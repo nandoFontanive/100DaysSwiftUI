@@ -5,6 +5,7 @@
 //  Created by Fernando Fontanive on 11/10/24.
 //
 
+import SwiftData
 import SwiftUI
 
 @main
@@ -13,5 +14,6 @@ struct HotProspectsApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: Prospect.self)
     }
 }

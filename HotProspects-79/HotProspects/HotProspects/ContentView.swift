@@ -6,32 +6,93 @@
 //
 
 import SwiftUI
+import SamplePackage
 
 struct ContentView: View {
-    @State private var backGroundColor = Color.yellow
-    
     var body: some View {
-        List {
-            Text("Taylor")
-                .swipeActions {
-                    Button("Delete", systemImage: "minus.circle", role: .destructive) {
-                        print("Delete")
-                    }
+        TabView {
+            ProspectsView(filter: .none)
+                .tabItem {
+                    Label("Everyone", systemImage: "person.3")
                 }
-                .swipeActions(edge: .leading) {
-                    Button("Pin", systemImage: "pin") {
-                        print("Pinning")
-                    }
-                    .tint(.orange)
+            
+            ProspectsView(filter: .contacted)
+                .tabItem {
+                    Label("Contact", systemImage: "checkmark.circle")
                 }
-                
+            
+            ProspectsView(filter: .uncontacted)
+                .tabItem {
+                    Label("Uncontacted", systemImage: "questionmark.diamond")
+                }
+            
+            MeView()
+                .tabItem {
+                    Label("Me", systemImage: "person.crop.square")
+                }
         }
-    
     }
 }
+
 #Preview {
     ContentView()
 }
+
+
+//    day 81
+//    let possibleNumbers = 1...60
+//
+//    var results: String {
+//        let selected = possibleNumbers.random(7).sorted()
+//        let stringsRandomized = selected.map(String.init)
+//        return stringsRandomized.formatted()
+//    }
+//
+//    var body: some View {
+//        Text(results)
+// day 81 notification
+//        VStack {
+//            Button("Request permission") {
+//                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+//                    if success {
+//                        print("all ok!")
+//
+//                    }
+//                    else if let error {
+//                        print(error.localizedDescription)
+//                    }
+//
+//                }
+//            }
+//            Button("Schedule notification") {
+//                let contentTrigger = UNMutableNotificationContent()
+//                contentTrigger.title = "Feed the cat"
+//                contentTrigger.subtitle = "Poor kitty"
+//                contentTrigger.sound = UNNotificationSound.default
+//
+//                let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
+//
+//                let requestTrigger = UNNotificationRequest(identifier: UUID().uuidString, content: contentTrigger, trigger: notificationTrigger)
+//
+//                UNUserNotificationCenter.current().add(requestTrigger)
+//            }
+//        }
+// day 81
+//        List {
+//            Text("Taylor")
+//                .swipeActions {
+//                    Button("Delete", systemImage: "minus.circle", role: .destructive) {
+//                        print("Delete")
+//                    }
+//                }
+//                .swipeActions(edge: .leading) {
+//                    Button("Pin", systemImage: "pin") {
+//                        print("Pinning")
+//                    }
+//                    .tint(.orange)
+//                }
+//
+//        }
 //        day 81
 //        Text("Hellot!")
 //            .padding()
