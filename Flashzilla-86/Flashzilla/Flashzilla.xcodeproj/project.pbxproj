@@ -6,48 +6,41 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		20FF96CB2CBC682F00FAE66A /* SamplePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 20FF96CA2CBC682F00FAE66A /* SamplePackage */; };
-		20FF96D62CBDBCF500FAE66A /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 20FF96D52CBDBCF500FAE66A /* CodeScanner */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
-		20FF96AF2CB944BC00FAE66A /* HotProspects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotProspects.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		20FF96EF2CBFF28500FAE66A /* Flashzilla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashzilla.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		20FF96B12CB944BC00FAE66A /* HotProspects */ = {
+		20FF96F12CBFF28500FAE66A /* Flashzilla */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = HotProspects;
+			path = Flashzilla;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		20FF96AC2CB944BC00FAE66A /* Frameworks */ = {
+		20FF96EC2CBFF28500FAE66A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20FF96D62CBDBCF500FAE66A /* CodeScanner in Frameworks */,
-				20FF96CB2CBC682F00FAE66A /* SamplePackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		20FF96A62CB944BC00FAE66A = {
+		20FF96E62CBFF28500FAE66A = {
 			isa = PBXGroup;
 			children = (
-				20FF96B12CB944BC00FAE66A /* HotProspects */,
-				20FF96B02CB944BC00FAE66A /* Products */,
+				20FF96F12CBFF28500FAE66A /* Flashzilla */,
+				20FF96F02CBFF28500FAE66A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		20FF96B02CB944BC00FAE66A /* Products */ = {
+		20FF96F02CBFF28500FAE66A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				20FF96AF2CB944BC00FAE66A /* HotProspects.app */,
+				20FF96EF2CBFF28500FAE66A /* Flashzilla.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -55,70 +48,64 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		20FF96AE2CB944BC00FAE66A /* HotProspects */ = {
+		20FF96EE2CBFF28500FAE66A /* Flashzilla */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 20FF96BD2CB944BD00FAE66A /* Build configuration list for PBXNativeTarget "HotProspects" */;
+			buildConfigurationList = 20FF96FD2CBFF28700FAE66A /* Build configuration list for PBXNativeTarget "Flashzilla" */;
 			buildPhases = (
-				20FF96AB2CB944BC00FAE66A /* Sources */,
-				20FF96AC2CB944BC00FAE66A /* Frameworks */,
-				20FF96AD2CB944BC00FAE66A /* Resources */,
+				20FF96EB2CBFF28500FAE66A /* Sources */,
+				20FF96EC2CBFF28500FAE66A /* Frameworks */,
+				20FF96ED2CBFF28500FAE66A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				20FF96B12CB944BC00FAE66A /* HotProspects */,
+				20FF96F12CBFF28500FAE66A /* Flashzilla */,
 			);
-			name = HotProspects;
+			name = Flashzilla;
 			packageProductDependencies = (
-				20FF96CA2CBC682F00FAE66A /* SamplePackage */,
-				20FF96D52CBDBCF500FAE66A /* CodeScanner */,
 			);
-			productName = HotProspects;
-			productReference = 20FF96AF2CB944BC00FAE66A /* HotProspects.app */;
+			productName = Flashzilla;
+			productReference = 20FF96EF2CBFF28500FAE66A /* Flashzilla.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		20FF96A72CB944BC00FAE66A /* Project object */ = {
+		20FF96E72CBFF28500FAE66A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
-					20FF96AE2CB944BC00FAE66A = {
+					20FF96EE2CBFF28500FAE66A = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
 			};
-			buildConfigurationList = 20FF96AA2CB944BC00FAE66A /* Build configuration list for PBXProject "HotProspects" */;
+			buildConfigurationList = 20FF96EA2CBFF28500FAE66A /* Build configuration list for PBXProject "Flashzilla" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 20FF96A62CB944BC00FAE66A;
+			mainGroup = 20FF96E62CBFF28500FAE66A;
 			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-				20FF96C92CBC682F00FAE66A /* XCRemoteSwiftPackageReference "SamplePackage" */,
-				20FF96D42CBDBCF500FAE66A /* XCRemoteSwiftPackageReference "CodeScanner" */,
-			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 20FF96B02CB944BC00FAE66A /* Products */;
+			productRefGroup = 20FF96F02CBFF28500FAE66A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				20FF96AE2CB944BC00FAE66A /* HotProspects */,
+				20FF96EE2CBFF28500FAE66A /* Flashzilla */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		20FF96AD2CB944BC00FAE66A /* Resources */ = {
+		20FF96ED2CBFF28500FAE66A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -128,7 +115,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		20FF96AB2CB944BC00FAE66A /* Sources */ = {
+		20FF96EB2CBFF28500FAE66A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -138,7 +125,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		20FF96BB2CB944BD00FAE66A /* Debug */ = {
+		20FF96FB2CBFF28700FAE66A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -201,7 +188,7 @@
 			};
 			name = Debug;
 		};
-		20FF96BC2CB944BD00FAE66A /* Release */ = {
+		20FF96FC2CBFF28700FAE66A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -257,19 +244,17 @@
 			};
 			name = Release;
 		};
-		20FF96BE2CB944BD00FAE66A /* Debug */ = {
+		20FF96FE2CBFF28700FAE66A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HotProspects/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Flashzilla/Preview Content\"";
 				DEVELOPMENT_TEAM = CHK3KY8Z83;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "\"Gimme gimme gimme access\"";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Gimme access to photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -280,7 +265,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = abc.com.academy.HotProspects;
+				PRODUCT_BUNDLE_IDENTIFIER = ffontanive.com.academy.Flashzilla;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -288,19 +273,17 @@
 			};
 			name = Debug;
 		};
-		20FF96BF2CB944BD00FAE66A /* Release */ = {
+		20FF96FF2CBFF28700FAE66A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HotProspects/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Flashzilla/Preview Content\"";
 				DEVELOPMENT_TEAM = CHK3KY8Z83;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "\"Gimme gimme gimme access\"";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Gimme access to photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -311,7 +294,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = abc.com.academy.HotProspects;
+				PRODUCT_BUNDLE_IDENTIFIER = ffontanive.com.academy.Flashzilla;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -322,57 +305,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		20FF96AA2CB944BC00FAE66A /* Build configuration list for PBXProject "HotProspects" */ = {
+		20FF96EA2CBFF28500FAE66A /* Build configuration list for PBXProject "Flashzilla" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				20FF96BB2CB944BD00FAE66A /* Debug */,
-				20FF96BC2CB944BD00FAE66A /* Release */,
+				20FF96FB2CBFF28700FAE66A /* Debug */,
+				20FF96FC2CBFF28700FAE66A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		20FF96BD2CB944BD00FAE66A /* Build configuration list for PBXNativeTarget "HotProspects" */ = {
+		20FF96FD2CBFF28700FAE66A /* Build configuration list for PBXNativeTarget "Flashzilla" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				20FF96BE2CB944BD00FAE66A /* Debug */,
-				20FF96BF2CB944BD00FAE66A /* Release */,
+				20FF96FE2CBFF28700FAE66A /* Debug */,
+				20FF96FF2CBFF28700FAE66A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		20FF96C92CBC682F00FAE66A /* XCRemoteSwiftPackageReference "SamplePackage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/twostraws/SamplePackage";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		20FF96D42CBDBCF500FAE66A /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/twostraws/CodeScanner";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.5.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		20FF96CA2CBC682F00FAE66A /* SamplePackage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 20FF96C92CBC682F00FAE66A /* XCRemoteSwiftPackageReference "SamplePackage" */;
-			productName = SamplePackage;
-		};
-		20FF96D52CBDBCF500FAE66A /* CodeScanner */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 20FF96D42CBDBCF500FAE66A /* XCRemoteSwiftPackageReference "CodeScanner" */;
-			productName = CodeScanner;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 20FF96A72CB944BC00FAE66A /* Project object */;
+	rootObject = 20FF96E72CBFF28500FAE66A /* Project object */;
 }

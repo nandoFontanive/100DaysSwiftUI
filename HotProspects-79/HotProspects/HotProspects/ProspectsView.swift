@@ -8,6 +8,7 @@
 import CodeScanner
 import SwiftData
 import SwiftUI
+import UserNotifications
 
 struct ProspectsView: View {
     enum FilterType {
@@ -57,6 +58,11 @@ struct ProspectsView: View {
                             prospect.isContacted.toggle()
                         }
                         .tint(.green)
+                        
+                        Button("Remind Me", systemImage: "bell") {
+                            addNotification(for: prospect)
+                        }
+                        .tint(.orange)
                     }
                 }
                 .tag(prospect)
@@ -68,22 +74,22 @@ struct ProspectsView: View {
                         isShowingScanner = true
                     }
                 }
-                    
-                    ToolbarItem(placement: .topBarLeading) {
-                        EditButton()
-                    }
-                    
-                    if selectedProspects.isEmpty == false {
-                        ToolbarItem(placement: .bottomBar) {
-                            Button("Delete Selected", action: delete)
-                        }
+                
+                ToolbarItem(placement: .topBarLeading) {
+                    EditButton()
+                }
+                
+                if selectedProspects.isEmpty == false {
+                    ToolbarItem(placement: .bottomBar) {
+                        Button("Delete Selected", action: delete)
                     }
                 }
             }
-            .sheet(isPresented: $isShowingScanner) {
-                CodeScannerView(codeTypes: [.qr], simulatedData: "Sigmund\nfsigmund@gmail.com", completion: handleScan)
-            }
         }
+        .sheet(isPresented: $isShowingScanner) {
+            CodeScannerView(codeTypes: [.qr], simulatedData: "Sigmund\nfsigmund@gmail.com", completion: handleScan)
+        }
+    }
     
     
     init(filter: FilterType) {
@@ -105,7 +111,7 @@ struct ProspectsView: View {
         case .success(let result):
             let details = result.string.components(separatedBy: "\n")
             guard details.count == 2 else { return } //check if only 2 details were scanned
-        
+            
             let person = Prospect(name: details[0], email: details[1], isContacted: false)
             modelContext.insert(person) //insert into swiftdata
         case .failure(let error):
@@ -116,6 +122,41 @@ struct ProspectsView: View {
     func delete() {
         for prospect in selectedProspects {
             modelContext.delete(prospect)
+        }
+    }
+    
+    func addNotification(for prospect: Prospect) {
+        let center = UNUserNotificationCenter.current()
+        
+        let addRequest = {
+            let content = UNMutableNotificationContent()
+            content.title = "Contact \(prospect.name)"
+            content.subtitle = prospect.emailAddress
+            content.sound = UNNotificationSound.default
+            
+            //            var dateComponents = DateComponents()
+            //            dateComponents.hour = 9
+            //            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false) // for testing
+            
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+            center.add(request)
+        }
+        
+        center.getNotificationSettings { settings in
+            if settings.authorizationStatus == .authorized {
+                addRequest()
+            }
+            else {
+                center.requestAuthorization(options: [.alert, .badge, .sound]) {
+                    success, error in
+                    if success {
+                        addRequest()
+                    } else if let error {
+                        print(error.localizedDescription)
+                    }
+                }
+            }
         }
     }
 }
