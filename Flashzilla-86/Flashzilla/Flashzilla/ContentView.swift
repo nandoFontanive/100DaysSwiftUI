@@ -7,35 +7,131 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @State private var count = 0
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
-    var body: some View {
-        
-            Text("Hello")
-            .onReceive(timer) { time in
-                if count == 5 {
-                    timer.upstream.connect().cancel()
-                    
-                }
-                else {
-                    print("The time is now: \(time)")
-                    
-                    count += 1
-                }
-            }
-    }
-    
-    func cancelTimer() {
-        timer.upstream.connect().cancel()
-    }
-}
+
+
+
+
+
+
+
+//struct ContentView: View {
+//    @Environment(\.accessibilityReduceTransparency) var reduceTransparency
+//
+//    var body: some View {
+//        Text("Hello, World!")
+//            .padding()
+//            .background(reduceTransparency ? .black : .black.opacity(0.5))
+//            .foregroundStyle(.white)
+//            .clipShape(.capsule)
+//    }
+//}
+
+//struct ContentView: View {
+//    @Environment(\.accessibilityReduceMotion) var reduceMotion
+//    @State private var scale = 1.0
+//
+//    var body: some View {
+//        Button("Hello, World!") {
+//            if reduceMotion {
+//                scale *= 1.5
+//            } else {
+//                withAnimation {
+//                    scale *= 1.5
+//                }
+//            }
+//
+//        }
+//        .scaleEffect(scale)
+//    }
+//}
+
+
+
+//struct ContentView: View {
+//    @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
+//
+//    var body: some View {
+//        HStack {
+//            if differentiateWithoutColor {
+//                Image(systemName: "checkmark.circle")
+//            }
+//
+//            Text("Success")
+//        }
+//        .padding()
+//        .background(differentiateWithoutColor ? .black : .green)
+//        .foregroundStyle(.white)
+//        .clipShape(.capsule)
+//    }
+//}
+
+
+
+
+
+
+
+//struct ContentView: View {
+//    @Environment(\.scenePhase) var scenePhase
+//
+//    var body: some View {
+//        Text("Hello, world!")
+//            .onChange(of: scenePhase) { oldPhase, newPhase in
+//                if newPhase == .active {
+//                    print("Active")
+//                } else if newPhase == .inactive {
+//                    print("Inactive")
+//                } else if newPhase == .background {
+//                    print("Background")
+//                }
+//            }
+//    }
+//}
+
+
+//struct ContentView: View {
+//    @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
+//
+//    var body: some View {
+//        HStack {
+//            if differentiateWithoutColor {
+//                Image(systemName: "checkmark.circle")
+//            }
+//
+//            Text("Success")
+//        }
+//        .padding()
+//        .background(differentiateWithoutColor ? .black : .green)
+//        .foregroundStyle(.white)
+//        .clipShape(.capsule)
+//    }
+//}
 
 
 #Preview {
     ContentView()
 }
+//    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+//
+//    var body: some View {
+//
+//            Text("Hello")
+//            .onReceive(timer) { time in
+//                if count == 5 {
+//                    timer.upstream.connect().cancel()
+//
+//                }
+//                else {
+//                    print("The time is now: \(time)")
+//
+//                    count += 1
+//                }
+//            }
+//    }
+//
+//    func cancelTimer() {
+//        timer.upstream.connect().cancel()
+//    }
 //    @State private var currentAmount = 0.0
 //    @State private var finalAmount = 1.0
 //    @State private var offset = CGSize.zero
