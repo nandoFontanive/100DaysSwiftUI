@@ -8,56 +8,73 @@
 import SwiftUI
 
 struct ContentView: View {
-    //    @State private var currentAmount = 0.0
-    //    @State private var finalAmount = 1.0
-    @State private var offset = CGSize.zero
-    @State private var isDragging = false
-    
-    @State private var currentAmount = Angle.zero
-    @State private var finalAmount = Angle.zero
+    @State private var count = 0
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
-        VStack {
-            let dragGesture = DragGesture()
-                .onChanged { value in
-                    offset = value.translation
-                }
-                .onEnded{_ in
-                    withAnimation {
-                        offset = .zero
-                        isDragging = false
-                    }
+        
+            Text("Hello")
+            .onReceive(timer) { time in
+                if count == 5 {
+                    timer.upstream.connect().cancel()
                     
                 }
-                
-            
-            let pressGesture = LongPressGesture()
-                .onEnded { value in
-                    withAnimation {
-                        isDragging = true
-                        
-                    }
-                }
-                
-            let combined = pressGesture.sequenced(before: dragGesture)
-                            
-            Circle()
-                .fill(.red)
-                .frame(width: 64, height: 64)
-                .scaleEffect(isDragging ? 1.5 : 1)
-                .offset(offset)
-                .gesture(combined)
+                else {
+                    print("The time is now: \(time)")
                     
-                
-        }
+                    count += 1
+                }
+            }
     }
     
+    func cancelTimer() {
+        timer.upstream.connect().cancel()
+    }
 }
 
 
 #Preview {
     ContentView()
 }
+//    @State private var currentAmount = 0.0
+//    @State private var finalAmount = 1.0
+//    @State private var offset = CGSize.zero
+//    @State private var isDragging = false
+//    @State private var currentAmount = Angle.zero
+//    @State private var finalAmount = Angle.zero
+//        VStack {
+//            let dragGesture = DragGesture()
+//                .onChanged { value in
+//                    offset = value.translation
+//                }
+//                .onEnded{_ in
+//                    withAnimation {
+//                        offset = .zero
+//                        isDragging = false
+//                    }
+//
+//                }
+//
+//
+//            let pressGesture = LongPressGesture()
+//                .onEnded { value in
+//                    withAnimation {
+//                        isDragging = true
+//
+//                    }
+//                }
+//
+//            let combined = pressGesture.sequenced(before: dragGesture)
+//
+//            Circle()
+//                .fill(.red)
+//                .frame(width: 64, height: 64)
+//                .scaleEffect(isDragging ? 1.5 : 1)
+//                .offset(offset)
+//                .gesture(combined)
+//
+//
+//        }
 //                .simultaneousGesture(
 ////                .highPriorityGesture(
 //                    TapGesture()
