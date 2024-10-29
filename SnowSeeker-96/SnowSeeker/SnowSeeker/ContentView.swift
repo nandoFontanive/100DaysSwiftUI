@@ -7,36 +7,44 @@
 
 import SwiftUI
 
-@Observable
-class PlayerClass {
-    var name = "Anon"
-    var highScore = 0
-}
 
-struct highScoreView: View {
-    @Environment(PlayerClass.self) var playerHighScoreViewVariable
-    
-//    var playerVariableOnHighScoreView: PlayerClass
-    
-    var body: some View {
-        @Bindable var playerBindableVariable = playerHighScoreViewVariable
-        Stepper("Hello \(playerBindableVariable.name)!\nYour high score is: \(playerBindableVariable.highScore)", value: $playerBindableVariable.highScore)
-//        Text("Your high score is \(playerHighScoreViewVariable.highScore)")
-    }
-}
 
-struct ContentView: View {
-    @State private var playerContentViewVariable = PlayerClass()
-    
-    var body: some View {
-        VStack {
-            Text("Welcome!")
-            highScoreView()
-//            highScoreView(playerVariableOnHighScoreView: playerVariableOnContentView)
-        }
-        .environment(playerContentViewVariable)
-    }
-}
+
+
+
+
+
+
+//@Observable
+//class PlayerClass {
+//    var name = "Anon"
+//    var highScore = 0
+//}
+//
+//struct highScoreView: View {
+//    @Environment(PlayerClass.self) var playerHighScoreViewVariable
+//    
+////    var playerVariableOnHighScoreView: PlayerClass
+//    
+//    var body: some View {
+//        @Bindable var playerBindableVariable = playerHighScoreViewVariable
+//        Stepper("Hello \(playerBindableVariable.name)!\nYour high score is: \(playerBindableVariable.highScore)", value: $playerBindableVariable.highScore)
+////        Text("Your high score is \(playerHighScoreViewVariable.highScore)")
+//    }
+//}
+//
+//struct ContentView: View {
+//    @State private var playerContentViewVariable = PlayerClass()
+//    
+//    var body: some View {
+//        VStack {
+//            Text("Welcome!")
+//            highScoreView()
+////            highScoreView(playerVariableOnHighScoreView: playerVariableOnContentView)
+//        }
+//        .environment(playerContentViewVariable)
+//    }
+//}
 
 //#Preview {
 //    ()
@@ -119,38 +127,3 @@ struct ContentView: View {
 
 //        .sheet(item: $selectedUser) { unwrappedUserValue in
 //            Text(unwrappedUserValue.id)
-
-
-
-
-=============================
-
-
-import SwiftUI
-
-@Observable
-class PlayerClass {
-    var name = "Anon"
-    var highScore = 0
-}
-
-struct highScoreView: View {
-    @Environment(PlayerClass.self) var playerHighScoreViewVariable
-    
-    var body: some View {
-        @Bindable var playerBindableVariable = playerHighScoreViewVariable
-        Stepper("Hello \(playerBindableVariable.name)!\nYour high score is: \(playerBindableVariable.highScore)", value: $playerBindableVariable.highScore)
-    }
-}
-
-struct ContentView: View {
-    @State private var playerContentViewVariable = PlayerClass()
-    
-    var body: some View {
-        VStack {
-            Text("Welcome!")
-            highScoreView()
-        }
-        .environment(playerContentViewVariable)
-    }
-}
